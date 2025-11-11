@@ -32,7 +32,6 @@ scope;
 :root {
     interpolate-size: allow-keywords;
 }
-
 @import './base/reset.css';
 @import './base/elements/elements.css';
 @import './base/elements/tables.css';
