@@ -40,11 +40,9 @@
         /* e.g. >> /static-caching */
         padding-inline: var(--spacing-3xs);
     }
-    /* https://twitter.com/bramus/status/1452572001697153029 */
-    /* html,
-    body {
-        background: ;
-    } */
+    textarea {
+        line-height: 1.5;
+    }
     html {
         /* Consider disabling this if you have pages that require lots of cmd + f https://css-tricks.com/downsides-of-smooth-scrolling/ */
         scroll-behavior: smooth;
@@ -210,7 +208,7 @@
             </li>
         </ol>
     */
-    .s-main :is(p:not(li p), ol, ul):not(:has(li p)) {
+    .s-main:not(.ui-component-example__render *, [data-dismissable-layer] *) &:is(p:not(li p), ol, ul):not(:has(li p)) {
         line-height: var(--font-size-reading-line-height);
         list-style-position: inside;
         padding-inline-start: 0;
@@ -240,7 +238,7 @@
     /* GROUP ELEMENTS / FRAMEWORK / MAIN
     =================================================== */
     /* Target the main element with a class rather than the main tag, because the main tag can still be used elsewhere e.g. Meilisearch uses it for its modal */
-    .s-main {
+    .s-main:not(.ui-component-example__render *, [data-dismissable-layer] *) {
         &:focus {
             outline: none;
         }
@@ -279,6 +277,7 @@
             grid-template-rows: 2.5rem auto;
         }
     }
+    :not(.ui-component-example__render *, [data-dismissable-layer] *) {
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS
     =================================================== */
     /* https://developer.chrome.com/blog/CSS-text-wrap-balance */
@@ -296,7 +295,7 @@
         font-family: var(--font-family-main);
         font-weight: var(--font-family-main-weight-medium);
     }
-    h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a {
+    &:is(h1, .h1, h1 a, .h1 a, h2, .h2, h2 a, .h2 a, h3, .h3, h3 a, .h3 a) {
         /* Not when headings are inside li, which they sometimes are, e.g. /tips */
         &:not(li *) {
             font-family: var(--font-family-serif);
@@ -312,41 +311,41 @@
         /* When a heading is inside a link, escape the link colour */
         color: initial;
     }
-    h4, h4 a, h5, h5 a, h6, h6 a {
+    &:is(h4, h4 a, h5, h5 a, h6, h6 a) {
         font-family: var(--font-family-serif);
         font-weight: var(--font-family-serif-weight-normal);
         /* Override iOS Safari's user agent stylesheet */
         text-decoration: none;
         color: inherit; /* If you use a link inside a heading, inherit the colour so it's not the default browser-purple */
     }
-    h1 {
+    &h1 {
         font-size: var(--font-size-4xl); line-height: var(--font-size-4xl-line-height);
     }
-    h2 {
+    &h2 {
         font-size: var(--font-size-3xl); line-height: var(--font-size-3xl-line-height);
     }
-    h3 {
+    &h3 {
         font-size: var(--font-size-2xl); line-height: var(--font-size-2xl-line-height);
     }
-    h4 {
+    &h4 {
         font-size: var(--font-size-xl); line-height: var(--font-size-xl-line-height);
     }
-    h5 {
+    &h5 {
         font-size: var(--font-size-lg); line-height: var(--font-size-lg-line-height);
     }
-    h6 {
+    &h6 {
         font-size: var(--font-size-md); line-height: var(--font-size-md-line-height);
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / HIGH PRIORITY / VERTICAL SPACING
     =================================================== */
-    h1 {
+    &h1 {
         padding-block-end: var(--spacing-md);
     }
-    h2 {
+    &h2 {
         /* E.g. h2 following article intro text */
         padding-block-end: var(--spacing-md);
     }
-    * + h2,
+    &* + h2,
     article + article {
         /* E.g. h2 following article intro text */
         padding-block: var(--spacing-sm) var(--spacing-md);
@@ -357,11 +356,11 @@
     }
     /* GROUP ELEMENTS / FRAMEWORK / HEADINGS / LOW PRIORITY / VERTICAL SPACING
     =================================================== */
-    h3 {
+    &h3 {
         /* e.g. >> /contributing */
         padding-block: var(--spacing-md) var(--spacing-sm);
     }
-    h4 {
+    &h4 {
         /* e.g. >> /frontend/augmentation */
         padding-block: var(--spacing-md) var(--spacing-sm);
         &:has(code) {
@@ -369,8 +368,9 @@
             padding-block-start: var(--spacing-lg);
         }
     }
-    h5 {
+    &h5 {
         padding-block: var(--spacing-2xl) var(--spacing-lg);
+    }
     }
 }
 @layer components {
@@ -474,7 +474,8 @@
 /* GROUP ELEMENTS / NAV
 =================================================== */
 @layer elements {
-    nav {
+    :not(.ui-component-example__render *, [data-dismissable-layer] *) {
+    nav& {
         & ul {
             list-style: none;
             margin: 0;
@@ -494,6 +495,7 @@
                 display: flex;
             }
         }
+    }
     }
 }
 @layer objects {
@@ -518,13 +520,14 @@
 
 /* Default */
 @layer elements {
-    a,
-    button {
+    :not(.ui-component-example__render *, [data-dismissable-layer] *) {
+    &:is(a,button) {
         text-decoration-skip-ink: auto;
         text-underline-offset: 0.2rem;
         text-decoration-thickness: 1px;
         text-decoration-color: light-dark(var(--color-primary-accent), var(--color-link));
         color: var(--color-link);
+    }
     }
 }
 @layer elements {

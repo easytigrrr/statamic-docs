@@ -52,7 +52,7 @@
         - Don't affect the header
         - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
     */
-    main :is(.c-btn, button):not(:last-child) {
+    main &:is(.c-btn, button):not(:last-child) {
         margin-right: 1rem;
     }
     button,
