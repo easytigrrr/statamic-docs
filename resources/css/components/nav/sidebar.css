@@ -299,28 +299,4 @@
             }
         }
     }
-    .c-nav-collapse-expand {
-        display: flex;
-        justify-content: center;
-        padding-inline-end: var(--spacing-2xs);
-        svg {
-            fill: none;
-        }
-        &:not(.js__expand-collapse-nav--collapsed) {
-            #top-arrow {
-                transform: scaleY(-1);
-                transform-origin: 50% 17%;
-            }
-            #bottom-arrow {
-                transform: scaleY(-1);
-                transform-origin: 50% 83%;
-            }
-            .dash {
-                display: none;
-            }
-        }
-        @container style(--color-scheme: dark) {
-            opacity: 0.5;
-        }
-    }
 }

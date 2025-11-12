@@ -13,34 +13,6 @@
             {{ svg src='wordmark' }}
         </a>
         <div class="c-docs-header__search">
-            <button 
-                class="c-nav-collapse-expand js__expand-collapse-nav u-hide-on-small-screens"
-                x-data="{
-                    isCollapsed: $persist(false).as('nav-is-collapsed'),
-                    init() {
-                        // Sync with nav container's persisted state on init
-                        // The persisted value should already be loaded, but we'll also listen for updates
-                        // Request the current state to ensure sync
-                        setTimeout(() => {
-                            window.dispatchEvent(new CustomEvent('request-nav-state'));
-                        }, 50);
-                        
-                        // Listen for state changes from nav container
-                        window.addEventListener('nav-collapse-changed', (e) => {
-                            // Update both the local state and ensure it persists
-                            this.isCollapsed = e.detail.isCollapsed;
-                        });
-                    },
-                    toggleNav() {
-                        // Dispatch event that nav container will listen to
-                        window.dispatchEvent(new CustomEvent('toggle-nav-collapse'));
-                    }
-                }"
-                @click="toggleNav()"
-                :class="{ 'js__expand-collapse-nav--collapsed': isCollapsed }"
-            >
-                {{ svg src='nav-collapsed' }}
-            </button>
             <form class="c-search-form" action="/search-results">
                 <div id="docsearch" ref="docSearch"></div>
             </form>
