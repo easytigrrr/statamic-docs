@@ -13,7 +13,32 @@
             {{ svg src='wordmark' }}
         </a>
         <div class="c-docs-header__search">
-            <button class="c-nav-collapse-expand js__expand-collapse-nav u-hide-on-small-screens">
+            <button 
+                class="c-nav-collapse-expand js__expand-collapse-nav u-hide-on-small-screens"
+                x-data="{
+                    isCollapsed: false,
+                    init() {
+                        // Get initial state from nav container
+                        const navContainer = document.querySelector('.o-toggle-subnav-container');
+                        if (navContainer && navContainer.__x) {
+                            this.isCollapsed = navContainer.__x.$data.isCollapsed;
+                        }
+                        
+                        // Listen for state changes
+                        window.addEventListener('nav-collapse-changed', (e) => {
+                            this.isCollapsed = e.detail.isCollapsed;
+                        });
+                    },
+                    toggleNav() {
+                        const navContainer = document.querySelector('.o-toggle-subnav-container');
+                        if (navContainer && navContainer.__x) {
+                            navContainer.__x.$data.toggleCollapse();
+                        }
+                    }
+                }"
+                @click="toggleNav()"
+                :class="{ 'js__expand-collapse-nav--collapsed': isCollapsed }"
+            >
                 {{ svg src='nav-collapsed' }}
             </button>
             <form class="c-search-form" action="/search-results">

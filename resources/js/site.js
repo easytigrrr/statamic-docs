@@ -1,7 +1,6 @@
 import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
 import persist from '@alpinejs/persist'
 import { registerIconSet, Button, Icon } from '@statamic/ui';
-import './collapsible-side-menu.js';
 import './anchors.js';
 import './cookies.js';
 import './color-scheme-preferences.js';
