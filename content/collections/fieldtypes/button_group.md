@@ -3,7 +3,8 @@ title: 'Button Group'
 description: 'Buttons you click. You can only choose one.'
 intro: |
   Buttons. Create some options and let your users select one and only one. May they choose wisely.
-screenshot: fieldtypes/screenshots/button_group.png
+screenshot: fieldtypes/screenshots/v6/button-group.webp
+screenshot_dark: fieldtypes/screenshots/v6/button-group-dark.webp
 options:
   -
     name: clearable

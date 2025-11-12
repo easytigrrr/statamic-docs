@@ -6,7 +6,7 @@
         {{ push:scope_classes }}s-restrict-width-of-main-imgs{{ /push:scope_classes }}
         <figure>
             {{ screenshot }}
-                <img src="{{ url }}" alt="Screenshot of {{ page:title }}" class="u-hide-in-dark-mode">
+                <img src="{{ url }}" alt="Screenshot of {{ page:title }}"{{ if screenshot_dark }} class="u-hide-in-dark-mode"{{ /if }}>
             {{ /screenshot }}
             {{ if screenshot_dark }}
                 {{ screenshot_dark }}
