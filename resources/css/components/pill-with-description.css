@@ -43,7 +43,7 @@
             border: var(--border-solid);
             border-block-end: 0;
             > * {
-                padding: var(--spacing-2xs) var(--spacing-lg);
+                padding: var(--spacing-2xs) var(--spacing-sm);
                 font-size: var(--font-size-sm);
                 line-height: var(--font-size-sm-line-height);
 
@@ -59,7 +59,7 @@
                 }
                 &:first-child {
                     /* Custom */
-                    font-size: clamp(1rem, 4vw, 1.1rem);
+                    font-size: var(--font-size-md);
                     font-family: var(--font-family-code);
                     font-weight: var(--font-family-code-weight-medium);
                     text-transform: lowercase;
@@ -76,8 +76,7 @@
             }
         }
         > *:last-child {
-            padding: var(--spacing-lg) var(--spacing-md);
-            font-size: var(--font-size-sm);
+            padding: var(--spacing-md) var(--spacing-sm);
             background: var(--color-gradient-full-light-5);
             border: var(--border-solid);
             border-radius: var(--border-radius-lg);
