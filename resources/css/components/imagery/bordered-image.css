@@ -53,8 +53,8 @@
 
 */
 @layer components {
-    /* Direct descendent so we don't affect things like the homepage where we have the .c-tiles-with-description component */
-    .c-entry-content > figure,
+    /* Make sure so we don't descend from a further component, so we don't affect things like the homepage where we have the .c-tiles-with-description component */
+    .c-entry-content figure:not(.c-entry-content [class^="c-"] figure),
     .c-bordered-image {
         position: relative;
         /* e.g. >> /collections and /stache */
