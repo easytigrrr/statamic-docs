@@ -38,7 +38,7 @@
             <label class="o-toggle-subnav c-nav-sidebar-with-popover-api-category-heading{{ if is_current || is_parent }} o-current-menu-item{{ /if }}">
                 <div class="c-nav-sidebar-with-popover-api__disclosure">{{ svg src='chevron' }}</div>
                 {{ title }}
-                <input id="{{ title | slugify }}" type="checkbox">
+                <input id="{{ title | slugify }}" type="checkbox" {{ unless is_current || is_parent || (current_uri == '/' && first) }}checked{{ /unless }}>
             </label>
             <ul>
                 {{# Make sure we output the homepage for the 'Getting Started' disclosure #}}
