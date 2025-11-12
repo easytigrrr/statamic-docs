@@ -16,24 +16,24 @@
             <button 
                 class="c-nav-collapse-expand js__expand-collapse-nav u-hide-on-small-screens"
                 x-data="{
-                    isCollapsed: false,
+                    isCollapsed: $persist(false).as('nav-is-collapsed'),
                     init() {
-                        // Get initial state from nav container
-                        const navContainer = document.querySelector('.o-toggle-subnav-container');
-                        if (navContainer && navContainer.__x) {
-                            this.isCollapsed = navContainer.__x.$data.isCollapsed;
-                        }
+                        // Sync with nav container's persisted state on init
+                        // The persisted value should already be loaded, but we'll also listen for updates
+                        // Request the current state to ensure sync
+                        setTimeout(() => {
+                            window.dispatchEvent(new CustomEvent('request-nav-state'));
+                        }, 50);
                         
-                        // Listen for state changes
+                        // Listen for state changes from nav container
                         window.addEventListener('nav-collapse-changed', (e) => {
+                            // Update both the local state and ensure it persists
                             this.isCollapsed = e.detail.isCollapsed;
                         });
                     },
                     toggleNav() {
-                        const navContainer = document.querySelector('.o-toggle-subnav-container');
-                        if (navContainer && navContainer.__x) {
-                            navContainer.__x.$data.toggleCollapse();
-                        }
+                        // Dispatch event that nav container will listen to
+                        window.dispatchEvent(new CustomEvent('toggle-nav-collapse'));
                     }
                 }"
                 @click="toggleNav()"

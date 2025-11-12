@@ -13,7 +13,7 @@
     class="o-shadow-container-vertical o-toggle-subnav-container"
     x-data="{
         navScrollPosition: $persist(0),
-        isCollapsed: $persist(false),
+        isCollapsed: $persist(false).as('nav-is-collapsed'),
         init() {
             // Handle scroll position
             if (window.location.pathname === '/' || window.location.pathname === '/reference' || window.location.pathname === '/extending') {
@@ -31,9 +31,16 @@
                 localStorage.removeItem('comingFromSidebarNav');
             }, 20);
             
-            // Migrate old localStorage key if it exists
-            if (localStorage.getItem('collapse-nav') === 'yes' && !this.isCollapsed) {
+            // Migrate old localStorage key if it exists (only once)
+            const oldKey = localStorage.getItem('collapse-nav');
+            const hasMigrated = localStorage.getItem('nav-collapse-migrated');
+            if (oldKey === 'yes' && !hasMigrated) {
                 this.isCollapsed = true;
+                localStorage.setItem('nav-collapse-migrated', 'true');
+                localStorage.removeItem('collapse-nav');
+            } else if (oldKey && hasMigrated) {
+                // Clean up old key if it still exists
+                localStorage.removeItem('collapse-nav');
             }
             
             // Apply initial collapse state
@@ -42,6 +49,16 @@
             setTimeout(() => {
                 this.$el.classList.remove('u-disable-animation');
             }, 500);
+            
+            // Listen for toggle requests from the button
+            window.addEventListener('toggle-nav-collapse', () => {
+                this.toggleCollapse();
+            });
+            
+            // Listen for state requests from the button
+            window.addEventListener('request-nav-state', () => {
+                this.applyCollapseState();
+            });
         },
         toggleCollapse() {
             this.isCollapsed = !this.isCollapsed;
@@ -65,22 +82,6 @@
             }));
         }
     }"
-    x-init="
-        if (window.location.pathname === '/' || window.location.pathname === '/reference' || window.location.pathname === '/extending') {
-            navScrollPosition = 0;
-        } else {
-            $el.scrollTop = navScrollPosition;
-            // Scroll to current menu item if we _didn't_ come from a click in the sidenav
-            if (!localStorage.getItem('comingFromSidebarNav')) {
-                $el.querySelector('.o-current-menu-item')?.scrollIntoView({ block: 'center' });
-            }
-        }
-        $el.style.overflow = 'hidden';
-        setTimeout(() => {
-            $el.style.overflow = 'auto';
-            localStorage.removeItem('comingFromSidebarNav');
-        }, 20)
-    "
     @scroll="navScrollPosition = $el.scrollTop"
     @click="localStorage.setItem('comingFromSidebarNav', 'true')"
 >
