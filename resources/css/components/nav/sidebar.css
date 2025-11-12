@@ -293,7 +293,7 @@
                     &:not(ul ul) {
                         /* Need to cut this short a little to force scrolling when there are a lot of items. */
                         height: 86dvh;
-                        padding-block-end: var(--spacing-m);
+                        padding-block-end: var(--spacing-md);
                     }
                 }
             }
