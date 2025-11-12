@@ -29,7 +29,7 @@
     .c-panel-list {
         font-family: var(--font-family-code);
         padding: var(--spacing-2xl) var(--spacing-3xl);
-        margin-block-start: calc(var(--spacing-3xl) - 0.75rem);
+        border-radius: var(--border-radius-lg);
         background: var(--color-purple-light-2);
         &:has(svg) {
             /* Check if there's any SVGs first because we want to affect e.g. >> /reference/fieldtypes but not /reference/modifiers */
