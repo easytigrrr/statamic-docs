@@ -1,5 +1,4 @@
 import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
-import intersect from '@alpinejs/intersect';
 import persist from '@alpinejs/persist'
 import { registerIconSet, Button, Icon } from '@statamic/ui';
 import './collapsible-side-menu.js';
@@ -16,7 +15,6 @@ import './torchlight.js';
 import './toc-navigation.js';
 
 // Register plugins before starting Alpine
-Alpine.plugin(intersect);
 Alpine.plugin(persist);
 
 // Start Alpine
