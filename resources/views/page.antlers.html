@@ -1,9 +1,9 @@
 {{ partial:header }}
 
 {{# <div listen-for-intersection-of-titles> #}}
-{{# If there's a screenshot at the top of the screen we're probably on a fieldtype page like /fieldtypes/assets and want to restrict the img width slightly by default #}}
-<div{{ if screenshot }} class="u-restrict-width-of-imgs"{{ /if }}>
     {{ if screenshot }}
+        {{# If there's a screenshot at the top of the screen we're probably on a fieldtype page like /fieldtypes/assets and want to restrict the img width slightly by default #}}
+        {{ push:scope_classes }}s-restrict-width-of-main-imgs{{ /push:scope_classes }}
         <figure>
             {{ screenshot }}
                 <img src="{{ url }}" alt="Screenshot of {{ page:title }}" class="u-hide-in-dark-mode">
@@ -35,7 +35,6 @@
         <h2 id="variables">Variables</h2>
         {{ partial:variables }}
     {{ /if }}
-</div>
 {{# </div> #}}
 
 {{ partial:related }}

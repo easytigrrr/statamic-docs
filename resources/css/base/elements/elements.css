@@ -346,7 +346,6 @@
             padding-block-end: var(--spacing-md);
         }
         &* + h2,
-        &h2:first-child,
         article + article {
             /* E.g. h2 following article intro text */
             padding-block: var(--spacing-sm) var(--spacing-md);
