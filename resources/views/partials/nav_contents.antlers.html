@@ -20,7 +20,7 @@
             <ul>
                 {{ collection :from="collection" }}
                 <li>
-                        <a wire:navigate
+                        <a
                             href="{{ url }}"
                             {{ if segment_2 === slug }}class="o-current-menu-item"{{ /if }}
                         >
@@ -44,7 +44,7 @@
                 {{# Make sure we output the homepage for the 'Getting Started' disclosure #}}
                 {{ if first }}
                     <li>
-                        <a wire:navigate
+                        <a
                             href="{{ homepage }}"
                             {{ if current_uri == '/' }}class="o-current-menu-item"{{ /if }}
                         >
@@ -55,7 +55,7 @@
                 {{ if children }}
                     {{ children scope="child" }}
                         <li>
-                            <a wire:navigate
+                            <a
                                 href="{{ url }}"
                                 {{ if is_current || is_parent }}class="o-current-menu-item"{{ /if }}
                             >
