@@ -98,7 +98,7 @@
                 align-items: center;
                 justify-content: space-between;
                 /* Nudge so the nav aligns horizontally with the breadcrumbs */
-                padding: 0.55rem 0 0.55rem var(--spacing-md);
+                padding: 0.5rem 0 0.5rem var(--spacing-md);
                 font-size: var(--font-size-md);
                 line-height: var(--font-size-md-line-height);
                 font-weight: var(--font-family-main-weight-normal);

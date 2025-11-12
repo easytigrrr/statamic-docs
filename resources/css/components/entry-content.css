@@ -161,7 +161,7 @@
                     background: var(--color-purple-light-1);
                     position: absolute;
                     left: calc(0% - var(--padding-inline-start));
-                    top: 0.55rem;
+                    top: 0.5rem;
                     inline-size: 0.5em;
                     aspect-ratio: 1;
                     border-radius: 50%;
