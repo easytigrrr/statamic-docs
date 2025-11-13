@@ -3,7 +3,8 @@ title: Date
 description: Helps you pick a date, but not get one.
 intro: >
   Work with dates, times, and ranges with a variety of user interface options that make you really enjoy basically just picking numbers from a table.
-screenshot: fieldtypes/screenshots/date.png
+screenshot: fieldtypes/screenshots/v6/date.webp
+screenshot_dark: fieldtypes/screenshots/v6/date-dark.webp
 options:
   -
     name: columns
@@ -46,7 +47,8 @@ options:
     description: |
       Enable/disable the timepicker. Default: `false`.
       <figure>
-        <img src="/img/fieldtypes/screenshots/date-and-time.png" alt="Date fieldtype with time enabled" width="492">
+        <img src="/img/fieldtypes/screenshots/v6/date-and-time.webp" alt="Date fieldtype with time enabled" class="u-hide-in-dark-mode">
+        <img src="/img/fieldtypes/screenshots/v6/date-and-time-dark.webp" alt="Date fieldtype with time enabled" class="u-hide-in-light-mode">
         <figcaption>Now you can pick a time, too!</figcaption>
       </figure>
   -
@@ -107,7 +109,8 @@ Event: {{ $date_range['start'] }} through {{ $date_range['end'] }}
 ::
 
 <figure>
-  <img src="/img/fieldtypes/screenshots/date-range.png" alt="Date fieldtype in range mode" width="301">
+  <img src="/img/fieldtypes/screenshots/v6/date-range.webp" alt="Date fieldtype in range mode" class="u-hide-in-dark-mode"s>
+  <img src="/img/fieldtypes/screenshots/v6/date-range-dark.webp" alt="Date fieldtype in range mode" class="u-hide-in-light-mode">
   <figcaption>Ranges are much simpler than two date fields.</figcaption>
 </figure>
 
