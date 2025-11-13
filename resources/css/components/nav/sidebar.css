@@ -67,7 +67,7 @@
             position: absolute;
             z-index: var(--z-index-above-body);
             right: 0.5rem;
-            top: 0.5rem;
+            top: 0.25rem;
             margin-inline-end: 0;
             padding: var(--spacing-xs);
             & svg {
@@ -98,7 +98,7 @@
                 align-items: center;
                 justify-content: space-between;
                 /* Nudge so the nav aligns horizontally with the breadcrumbs */
-                padding: 0.5rem 0 0.5rem var(--spacing-md);
+                padding: 0.45rem 0 0.45rem var(--spacing-md);
                 font-size: var(--font-size-md);
                 line-height: var(--font-size-md-line-height);
                 font-weight: var(--font-family-main-weight-normal);
