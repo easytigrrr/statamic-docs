@@ -48,6 +48,7 @@
     /* This is used to restrict the width of some screenshots, e.g. fieldtypes like /fieldtypes/assets */
     .s-restrict-width-of-main-imgs main figure img {
         max-width: 35rem;
+        width: 100%;
     }
     .u-image-boost-with-hue-rotate {
         filter: var(--filter-image-boost-1-with-hue-rotate);
