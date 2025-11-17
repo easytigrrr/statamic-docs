@@ -32,7 +32,7 @@ options:
     name: escape_markup
     type: boolean
     description: >
-      Escapes inline HTML markup. For example, `<div>` will be replaced with `&lt;div&gt;`. Default: `false`.
+      Escapes inline HTML markup. For example, `&lt;div&gt;` will be replaced with `&amp;lt;div&amp;gt;`. Default: `false`.
   -
     name: folder
     type: string
