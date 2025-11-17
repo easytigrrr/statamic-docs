@@ -104,16 +104,5 @@ The Markdown content will be automatically transformed into HTML through [augmen
 <p>This is the Markdown fieldtype. It's for writing <a href="https://daringfireball.net/projects/markdown/">Markdown</a>, an easy-to-read, easy-to-write plain text format that magically transforms into HTML.</p>
 ```
 
-## Dark Mode
-
-The Markdown fieldtype also has a dark mode when in fullscreen for those of you who like that sort of thing.
-
-<figure>
-    <img src="/img/fieldtypes/screenshots/markdown-dark-mode-v4.png" alt="Dark Mode for Markdown">
-    <figcaption><span class="not-italic">😎</span> Sunglasses off.</figcaption>
-</figure>
-
-
-
 [commonmark]: https://commonmark.thephpleague.com/
 [gfm]: https://help.github.com/en/categories/writing-on-github
