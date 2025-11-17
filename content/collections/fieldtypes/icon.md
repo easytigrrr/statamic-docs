@@ -4,7 +4,8 @@ blueprint: fieldtype
 title: Icon
 description: 'Simple UI to select SVG icons from a dropdown.'
 intro: 'Give your users a list of icons to choose from. This field supports search and keyboard commands, and can be configured to use your own icons or ones managed by Statamic.'
-screenshot: fieldtypes/screenshots/icon.png
+screenshot: fieldtypes/screenshots/v6/icon.webp
+screenshot_dark: fieldtypes/screenshots/v6/icon-dark.webp
 options:
   -
     id: nKVDUK7I
