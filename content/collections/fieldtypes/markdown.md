@@ -17,7 +17,7 @@ options:
     name: automatic_line_breaks
     type: boolean
     description: >
-      Automatically convert line breaks to `<br>` tags. Default: `true`.
+      Automatically convert line breaks to `&lt;br&gt;` tags. Default: `true`.
   -
     name: automatic_links
     type: boolean
@@ -42,7 +42,7 @@ options:
     name: heading_anchors
     type: boolean
     description: |
-      Inject anchor links to all of your heading elements (`<h1>`, `<h2>`, etc). Default: `false`.
+      Inject anchor links to all of your heading elements (`&lt;h1&gt;`, `&lt;h2&gt;`, etc). Default: `false`.
   -
     name: parser
     type: string
