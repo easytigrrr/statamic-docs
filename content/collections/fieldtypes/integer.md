@@ -2,7 +2,8 @@
 title: Integer
 description: 'For when all you want is numbers.'
 intro: 'The integer fieldtype is a text-style input that only accepts integers (numbers) and has increment and decrement controls.'
-screenshot: fieldtypes/screenshots/integer.png
+screenshot: fieldtypes/screenshots/v6/integer.webp
+screenshot_dark: fieldtypes/screenshots/v6/integer-dark.webp
 id: 4038c2ac-8c3a-4f4c-8530-8c5f9c8242a6
 ---
 ## Overview
