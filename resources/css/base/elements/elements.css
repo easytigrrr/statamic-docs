@@ -35,6 +35,10 @@
         background: light-dark(hsl(229deg 20% 35%), hsl(229deg 20% 35%));
         color: white;
     }
+    select {
+        /* prevent long options making the box longer */
+        max-width: 100%;
+    }
     mark {
         background: var(--color-green);
         /* e.g. >> /static-caching */
