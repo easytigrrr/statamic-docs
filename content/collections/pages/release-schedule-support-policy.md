@@ -8,7 +8,7 @@ intro: 'For all Statamic releases, bug fixes are provided for 1 year and securit
 
 ## Versioning scheme
 
-Statamic and its other first-party packages follow [Semantic Versioning](https://semver.org/). Major releases are released every year (~Q1), following Laravel's major releases by roughly a month. Minor and patch releases may be released as often as every few days. Minor and patch releases should never contain breaking changes.
+Statamic and its other first-party packages follow [Semantic Versioning](https://semver.org/). Major releases are released every year (~Q1). Minor and patch releases may be released as often as every few days. Minor and patch releases should never contain breaking changes.
 
 ## Support policy
 
@@ -24,14 +24,6 @@ Statamic and its other first-party packages follow [Semantic Versioning](https:/
       </tr>
    </thead>
    <tbody>
-      <tr>
-         <td>3.3*</td>
-         <td>8-9</td>
-         <td>7.4-8.1</td>
-         <td>Mar 2022</td>
-         <td>Mar 2023</td>
-         <td>Sep 2023</td>
-      </tr>
       <tr>
          <td>3.4*</td>
          <td>8-9</td>
@@ -53,16 +45,16 @@ Statamic and its other first-party packages follow [Semantic Versioning](https:/
          <td>10-12</td>
          <td>8.2-8.4</td>
          <td>May 2024</td>
-         <td>Q1 2026</td>
+         <td>Mar 2026</td>
          <td>Dec 2026</td>
       </tr>
-       <tr>
+      <tr>
          <td>6</td>
-         <td>11-12</td>
-         <td>8.3-8.4</td>
-         <td>Q4 2025</td>
-         <td>TBD</td>
-         <td>TBD</td>
+         <td>12-13</td>
+         <td>8.3-8.5</td>
+         <td>Jan 2026</td>
+         <td>Mar 2027</td>
+         <td>Dec 2027</td>
       </tr>
    </tbody>
 </table>
