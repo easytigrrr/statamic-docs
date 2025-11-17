@@ -46,6 +46,8 @@
             anchor-name: --anchor-nav-mobile;
         }
         #popover-nav-sidebar {
+            /* Naturally the user-agent applies fit-content but sometimes this doesn't feel wide enough e.g. /fieldtypes/replicator */
+            min-width: min(60%, 15rem);
             position-anchor: --anchor-nav-mobile;
         }
         /* GROUP COMPONENTS / NAV DROPDOWN WITH POPOVER API AND ANCHOR POSITIONING / MOBILE NAV BUTTON
