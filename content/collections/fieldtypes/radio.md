@@ -4,7 +4,8 @@ description: 'Circles you click. You can only choose one.'
 intro: |
   Radio buttons. The "you can only have one" variation of checkboxes. Create some options and let your users select one and only one. May they choose wisely.
 
-screenshot: fieldtypes/screenshots/radio.png
+screenshot: fieldtypes/screenshots/v6/radio.webp
+screenshot_dark: fieldtypes/screenshots/v6/radio-dark.webp
 options:
   -
     name: inline
