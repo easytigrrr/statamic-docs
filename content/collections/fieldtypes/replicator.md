@@ -5,7 +5,8 @@ overview: |
   The Replicator is a meta fieldtype giving you the ability to define _sets_ of fields that you can dynamically piece together in whatever order and arrangement you imagine. You can build long-form articles like [Medium.com](http://medium.com) and take advantage of the extra markup control.
 
   It's so much better than a WYSIWYG field.
-screenshot: fieldtypes/screenshots/v4/replicator.png
+screenshot: fieldtypes/screenshots/v6/replicator.webp
+screenshot_dark: fieldtypes/screenshots/v6/replicator-dark.webp
 options:
   -
     name: sets
@@ -21,6 +22,26 @@ options:
     description: Allows you to define a label for the "Add Set" button.
 id: 00b140e3-413a-4d91-b9e7-65f58d56a41b
 ---
+## Set Previews
+
+New to Statamic v6, you can add an image preview of your set, _as well as_ an icon. Previews make it easy to identify sets by showing a screenshot of what the rendered set might look like on the front-end. Clients can now say “ah, that one” without pretending to know the names you carefully gave them.
+
+To add a set preview, click the little "pencil" icon next to the set name.
+
+<figure>
+    <img src="/img/fieldtypes/screenshots/v6/replicator-set-edit-preview.webp" alt="Replicator Set Edit Preview" class="u-hide-in-dark-mode">
+    <img src="/img/fieldtypes/screenshots/v6/replicator-set-edit-preview-dark.webp" alt="Replicator Set Edit Preview" class="u-hide-in-light-mode">
+    <figcaption>Let's give the set a preview.</figcaption>
+</figure>
+
+Once you're in the set editor, you can add a preview image and icon. Here we're showing a lovely screenshot of what the newsletter signup form might look like on the front-end. We can even add some instructions to explain how the set is used.
+
+<figure>
+    <img src="/img/fieldtypes/screenshots/v6/replicator-set-previews.webp" alt="Replicator Set Previews" class="u-hide-in-dark-mode">
+    <img src="/img/fieldtypes/screenshots/v6/replicator-set-previews-dark.webp" alt="Replicator Set Previews" class="u-hide-in-light-mode">
+    <figcaption>Give the set a screenshot, for the love of all clients.</figcaption>
+</figure>
+
 ## Usage
 
 You will be presented with a button for each set you’ve defined. Clicking one will replicate an empty set. You can [replicate](https://www.youtube.com/watch?v=qD4EVXkfe0w) a single set type as many times as you like as well as dragging and dropping them to adjust their order.
