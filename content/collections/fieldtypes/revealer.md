@@ -28,6 +28,12 @@ If you have some fields that you wish to hide until the user is ready to reveal 
 
 This fieldtype is intended to be used with our [conditional field rules](/conditional-fields), but unlike regular conditional fields, it will not [disrupt data flow](/conditional-fields#data-flow) on fields hidden by a Revealer.
 
+<figure>
+    <img src="/img/fieldtypes/screenshots/v6/revealer-conditions.webp" alt="Conditional fields used with Revealer" class="u-hide-in-dark-mode">
+    <img src="/img/fieldtypes/screenshots/v6/revealer-conditions-dark.webp" alt="Conditional fields used with Revealer" class="u-hide-in-light-mode">
+    <figcaption>An example of field conditions used in conjunction with a Revealer field.</figcaption>
+</figure>
+
 The example image above uses the following field configuration:
 
 ``` yaml
