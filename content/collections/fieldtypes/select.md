@@ -2,7 +2,8 @@
 title: Select
 description: Choose from predefined options. This field is highly configurable.
 intro: Give your users a list of options to choose from. This select field is highly configurable with support for search, multiple choice, and creating new options on the fly.
-screenshot: fieldtypes/screenshots/select.png
+screenshot: fieldtypes/screenshots/v6/select.webp
+screenshot_dark: fieldtypes/screenshots/v6/select-dark.webp
 options:
   -
     name: clearable
