@@ -9,7 +9,7 @@ id: ac5f8f98-616f-4621-a7ee-dbc8bbc15525
 
 ## Can I haz green?
 
-Some people like their toggles green. It's a personal preference, just like white or milk chocolate. Since the control panel theme is customizable, you can make your toggles green! Or whatever other color for that matter. Look for the Theme section in `config/statamic/cp.php` and set the `switch-bg` your preferred color. Here's green:
+Some people like their toggles green. It's a personal preference, just like white or milk chocolate. Since the control panel theme is customizable, you can make your toggles green! Or whatever other color for that matter… but maybe not red? Look for the Theme section in `config/statamic/cp.php` and set the `switch-bg` your preferred color. Here's green:
 
 ```php
 'theme' => [
