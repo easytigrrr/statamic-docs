@@ -111,7 +111,7 @@ address:
 
 ## Templating
 
-_This fieldtype is not [augmented](/augmentation)._
+This fieldtype _is not_ [augmented](/augmentation).
 
 
 ::tabs
