@@ -94,7 +94,7 @@ Triggered immediately before the closing form tag. The payload is an array conta
 Triggered when a new augmented instance is made.
 The payload will be the object being augmented (eg. `Entry` / `Term`).
 
-### Entry Creation Values: 'creating-entry'
+### Entry Creation Values: `creating-entry`
 Triggered when showing the entry creation form in the Control Panel.
 The payload will be an object with `entry` and `values` properties. You can modify `values` to change the default values on screen.
 
@@ -108,7 +108,7 @@ EntriesController::hook('creating-entry', function ($payload, $next) {
 
     return $next($payload);
 });
-```;
+```
 
 ### Entry Index Query: `query`
 Triggered before the index query for the Entries listing table is executed.
