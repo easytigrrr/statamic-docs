@@ -189,6 +189,7 @@
             li {
                 --size: 1.75rem;
                 list-style: none;
+
                 &:not(:last-child) {
                     padding-block-end: var(--spacing-xs);
                 }
@@ -276,6 +277,20 @@
         /* --mq-wider-entry-content-after */
         @media (width >= 1500px) {
             padding-inline: var(--spacing-xl);
+        }
+    }
+}
+
+@layer plugins {
+    .c-entry-content {
+        /* When lists have a pre compress things a little so it's more readable e.g. >> /addons/vite-tooling */
+        li:has(pre) {
+            p {
+                margin-block-end: var(--spacing-sm);
+            }
+            pre {
+                margin-block: var(--spacing-xs);
+            }
         }
     }
 }
