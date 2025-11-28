@@ -111,4 +111,21 @@
             border-top-left-radius: 0;
         }
     }
+
+    /* Handle tabs with multiple blocks, suck as The Template followed by The Layout on /tags/yields */
+    .c-doc-tabs {
+        pre:has(+ pre) {
+            &, code {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            /* In case there's more than one */
+            + * {
+                &, code {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                }
+            }
+        }
+    }
 }
