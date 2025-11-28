@@ -1,23 +1,21 @@
 {{ partial:header }}
 
-<article>
-    {{ content }}
-    <table>
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        {{ collection:variables }}
+{{ content }}
+<table>
+    <thead>
         <tr>
-            <td>
-                <a href="{{ url }}">{{ title }}</a>
-            </td>
-            <td>
-                {{ description | markdown ?? intro | markdown }}
-            </td>
+            <th>Type</th>
+            <th>Description</th>
         </tr>
-        {{ /collection:variables }}
-    </table>
-</article>
+    </thead>
+    {{ collection:variables }}
+    <tr>
+        <td>
+            <a href="{{ url }}">{{ title }}</a>
+        </td>
+        <td>
+            {{ description | markdown ?? intro | markdown }}
+        </td>
+    </tr>
+    {{ /collection:variables }}
+</table>
