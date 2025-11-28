@@ -114,6 +114,9 @@
 
     /* Handle tabs with multiple blocks, suck as The Template followed by The Layout on /tags/yields */
     .c-doc-tabs {
+        .tab-content {
+            background: var(--color-yellow-light-2);
+        }
         pre:has(+ pre) {
             &, code {
                 border-bottom-left-radius: 0;
