@@ -112,9 +112,10 @@
         }
     }
 
-    /* Handle tabs with multiple blocks, suck as The Template followed by The Layout on /tags/yields */
+    /* Handle tabs with multiple blocks, such as /tags/yield > The Template followed by The Layout */
     .c-doc-tabs {
-        .tab-content {
+        .tab-content:has(pre + pre) {
+            /* Only when there are multiple pre tags. In this instance it's better to have a solid background because you can't really see the subtle gradient */
             background: var(--color-yellow-light-2);
         }
         pre:has(+ pre) {
