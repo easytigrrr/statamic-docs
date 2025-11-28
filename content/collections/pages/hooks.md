@@ -94,6 +94,19 @@ Triggered immediately before the closing form tag. The payload is an array conta
 Triggered when a new augmented instance is made.
 The payload will be the object being augmented (eg. `Entry` / `Term`).
 
+### Asset Thumbnails: `asset`
+Triggered when generating a thumbnail for an asset in the Control Panel.
+
+```php
+use Statamic\Http\Resources\CP\Assets\FolderAsset as FolderAssetResource;
+
+FolderAssetResource::hook('asset', function ($payload, $next) {
+    $payload->data->thumbnail ??= "https://custom-thumbnail-cdn.com/{$this->resource->id()}";
+
+    return $next($payload);
+});
+```
+
 ### Entry Creation Values: `creating-entry`
 Triggered when showing the entry creation form in the Control Panel.
 The payload will be an object with `entry` and `values` properties. You can modify `values` to change the default values on screen.
