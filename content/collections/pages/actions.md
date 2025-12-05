@@ -206,7 +206,7 @@ public function run($values)
 }
 ```
 ```html
-<data-list-bulk-actions ... @completed="completed" />
+<ItemActions ... @completed="completed" />
 ```
 ```js
 completed(success, response) {
