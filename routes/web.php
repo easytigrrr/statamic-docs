@@ -23,6 +23,6 @@ Route::get('/from/{id?}', function ($id = null) {
 
 Route::get('ui-components/{component}', function ($component) {
     return redirect()->to('https://ui.statamic.dev/?path=/docs/components-'.$component);
-})->where('component', '(?!all-ui-components).*');
+})->where('component', '(?!all-ui-components|overview).*');
 
 require __DIR__.'/redirects.php';
