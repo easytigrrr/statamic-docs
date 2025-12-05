@@ -622,6 +622,18 @@ throw ValidationException::withMessages(['You did something wrong.']);
 
 You may also just modify the submission object. You do not need to `return` anything.
 
+### GlideAssetCacheCleared
+`Statamic\Events\GlideAssetCacheCleared`
+
+Dispatched after the Glide cache has been cleared for a specific asset, either via the `php please glide:clear` command or via the Cache Manager utility.
+
+``` php
+public function handle(GlideAssetCacheCleared $event)
+{
+    //
+}
+```
+
 ### GlideCacheCleared
 `Statamic\Events\GlideCacheCleared`
 
