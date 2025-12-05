@@ -419,6 +419,48 @@ protected $viewNamespace = 'custom';
 return view('custom::foo');
 ```
 
+## Inertia
+
+The Control Panel is powered by [Inertia.js](https://inertiajs.com), which lets Statamic render pages as Vue components while still using Laravel’s server-side routing. Using Inertia for your custom pages is strongly recommended if you want them to match the SPA-like behaviour seen throughout the Control Panel.
+
+To expose a Vue page component to Statamic, register it in your `cp.js` file:
+
+```js
+import Foo from './pages/Foo.vue';
+
+Statamic.booting(() => {
+    Statamic.$inertia.register('my-addon::Foo', Foo);
+});
+```
+
+Then return that page from your controller:
+
+```php
+use Inertia\Inertia;
+
+return Inertia::render('my-addon::Foo', [
+    'message' => 'Hello world!',
+]);
+```
+
+All data passed to `Inertia::render()` becomes props on the Vue component.
+
+For proper SPA behaviour, make sure your page uses Inertia’s `<Head>` component to set the document title, and use `<Link>` instead of `<a>` so navigation stays instant and avoids a full refresh:
+
+```vue
+<script setup>
+import { Head, Link } from '@statamic/cms/inertia';
+</script>
+
+<template>
+    <Head title="Foo" />
+
+    <Link :href="cp_url('bar')">Go to another page</Link>
+</template>
+```
+
+
+
 ## Events
 
 Statamic will automatically register any event listeners in the `src/Listeners` directory, as long as the event is type-hinted in the listener's `handle` or `__invoke` method.
