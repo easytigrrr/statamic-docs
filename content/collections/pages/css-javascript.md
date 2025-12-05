@@ -23,6 +23,24 @@ You can add any CSS to the `resources/css/cp.css` file, and any JavaScript to th
 
 To start Vite, run `npm run cp:dev` and to build for production, run `npm run cp:build`.
 
+## HMR and Vue Devtools
+
+To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build" of Statamic.
+
+You can do this via the `vendor:publish` command:
+
+```
+php artisan vendor:publish --tag=statamic-cp-dev
+```
+
+Alternatively, it can be symlinked:
+
+```
+ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-dev
+```
+
+Statamic will use the dev build as long as `APP_DEBUG=true` in your `.env` and the `public/vendor/statamic/cp-dev` directory exists. You **shouldn't** commit these or use this on production.
+
 ## Using `<script>` tags in the Control Panel
 
 For externally-hosted scripts, you may register assets to be loaded in the Control Panel with the `externalScript` method. This method accepts the URL of an external script.
