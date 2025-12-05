@@ -9,7 +9,7 @@ nav_title: Overview
 ---
 ## Finding addons
 
-You can browse the [Statamic Marketplace](https://statamic.com/addons) to find addons, or use the "Addons" section inside your Statamic Control Panel.
+You can browse the [Statamic Marketplace](https://statamic.com/addons) to find addons.
 
 ## Installing addons
 
