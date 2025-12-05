@@ -92,11 +92,34 @@ If you use the `php please make:fieldtype` command, these files will be created 
 
 ## Tailwind CSS
 
-If you want to use [Tailwind CSS](https://tailwindcss.com) in your addon's views, you'll need to install & configure Tailwind.
+If you want to use [Tailwind CSS](https://tailwindcss.com) in your addon's components, you'll need to install & configure Tailwind.
 
-1. First, install `tailwindcss`:
+1. First, install `tailwindcss` and `@tailwindcss/vite`:
     ```sh
-    npm install tailwindcss
+    npm install tailwindcss @tailwindcss/vite
+    ```
+
+2. Add the Tailwind Vite plugin to your `vite.config.js` file:
+
+    ```js
+    import { defineConfig } from 'vite';
+    import laravel from 'laravel-vite-plugin';
+    import statamic from '@statamic/cms/vite-plugin';
+    import tailwindcss from '@tailwindcss/vite'; // [tl! ++ **]
+
+    export default defineConfig({
+        plugins: [
+            laravel({
+                input: [
+                    'resources/js/addon.js',
+                    'resources/css/addon.css'
+                ],
+                publicDirectory: 'resources/dist',
+            }),
+            statamic(),
+            tailwindcss(),  // [tl! ++ **]
+        ],
+    });
     ```
 
 3. In your addon's CSS file, import Statamic's `tailwind.css` file:
