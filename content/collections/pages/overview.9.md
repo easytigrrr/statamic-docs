@@ -4,12 +4,6 @@ blueprint: page
 title: 'UI Components Overview'
 nav_title: Overview
 ---
-:::tip
-These docs are a work in progress during the Alpha. We're doing some major reorganizing of the docs for the v6 launch and will have complete documentation sometime between now and then. 
-
-In the meantime, [explore the components themselves](https://github.com/statamic/cms/tree/master/packages/ui/src) to see what exists and what props/events are available.
-:::
-
 When building custom areas of the Control Panel, you should aim to use the UI components as much as possible.
 
 These will allow you to write UIs that match the design of Statamic without needing to worry about styles or Tailwind classes. It also allows you to keep your UIs in sync with our design system without having to do any additional work. In short, they're here to make your life easier.
