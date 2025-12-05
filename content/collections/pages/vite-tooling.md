@@ -140,7 +140,7 @@ npm run dev
 
 Now that the Vite server is running, the error in the Statamic CP should be gone once you refresh.
 
-To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build", which can be done via the `vendor:publish` command:
+To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you need to publish a special "dev build", which can be done via the `vendor:publish` command:
 
 ```
 php artisan vendor:publish --tag=statamic-cp-dev

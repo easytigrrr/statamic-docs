@@ -576,25 +576,23 @@ import { Input, Textarea, Combobox, Switch } from '@statamic/cms/ui'; // [tl! ++
 </template>
 ```
 
-## Vue Devtools
+## HMR and Vue Devtools
 
-Vue Devtools is no longer automatically enabled during local development. To use it, you'll need to use our opt-in dev build.
+To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build" of Statamic.
 
-Your app must have debug mode enabled:
-```env
-APP_DEBUG=true
+You can do this via the `vendor:publish` command:
+
+```
+php artisan vendor:publish --tag=statamic-cp-dev
 ```
 
-The dev build must be either published or symlinked:
-```bash
-# Published
-php artisan vendor:publish --tag=statamic-cp-dev
+Alternatively, it can be symlinked:
 
-# Symlinked
+```
 ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-dev
 ```
 
-You shouldn't commit this to your repo or use this in production.
+Statamic will use the dev build as long as `APP_DEBUG=true` in your `.env` and the `public/vendor/statamic/cp-dev` directory exists. You **shouldn't** commit these or use this on production.
 
 ## Removals
 
