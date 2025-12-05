@@ -140,7 +140,19 @@ npm run dev
 
 Now that the Vite server is running, the error in the Statamic CP should be gone once you refresh.
 
-With the development server running, hot reloading should be working. When you save a CSS or JS file, it should be reflected in the browser without you needing to manually refresh.
+To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build", which can be done via the `vendor:publish` command:
+
+```
+php artisan vendor:publish --tag=statamic-cp-dev
+```
+
+Alternatively, it can be symlinked:
+
+```
+ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-dev
+```
+
+Statamic will use the dev build as long as `APP_DEBUG=true` in your `.env` and the `public/vendor/statamic/cp-dev` directory exists. You **shouldn't** commit these or use this on production.
 
 :::tip
 If you're using Valet with a secured site, your JS might not be loading correctly due to access control checks. You'll need Vite know about your Laravel site in `vite.config.js`.
@@ -149,7 +161,7 @@ If you're using Valet with a secured site, your JS might not be loading correctl
 export default defineConfig({
     plugins: [
         laravel({
-            valetTls: 'yoursite.test', // [tl!++]
+            valetTls: 'yoursite.test', // [tl! ++]
             input: [
 ```
 :::
@@ -165,31 +177,6 @@ You may need to symlink your addon's `resources/dist` directory the first time s
 ```
 ln -s ./addons/your/addon/resources/dist public/vendor/package
 ```
-
-### Vue Devtools
-Vue Devtools are disabled by default, for security reasons. 
-
-Statamic provides an opt-in dev build, allowing you to use Vue Devtools and see un-minified code, useful when debugging custom Vue components.
-
-Your app must have debug mode enabled:
-
-```
-APP_DEBUG=true
-```
-
-The dev build can either be published via the `vendor:publish` command:
-
-```
-php artisan vendor:publish --tag=statamic-cp-dev
-```
-
-Alternatively, it can be symlinked:
-
-```
-ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-dev
-```
-
-Statamic will attempt to use the dev build as long as the `public/vendor/statamic/cp-dev` directory exists. You **shouldn't** commit these or use this on production.
 
 ## Deployment
 
