@@ -87,6 +87,16 @@ public static function title()
 }
 ```
 
+## Setting an Icon
+
+You may set an icon for an action via the `$icon` property:
+
+``` php
+protected $icon = 'trash';
+```
+
+For a full list of available icons, please see the [Icon component's docs](https://ui.statamic.dev/?path=/docs/components-icon--docs#available-icons).
+
 ## Filtering Actions
 
 You may limit which items an action can be applied to using the `visibleTo` method. For example, if you want your action to only be used by entries, you can return a boolean like this:
