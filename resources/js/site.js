@@ -1,4 +1,4 @@
-import { Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm';
+import Alpine from 'alpinejs';
 import './anchors.js';
 import './cookies.js';
 import './color-scheme-preferences.js';
@@ -11,11 +11,4 @@ import './docsearch.js';
 import './torchlight.js';
 import './toc-navigation.js';
 
-// Start Alpine
 Alpine.start();
-window.Alpine = Alpine;
-
-import { createApp } from "vue";
-const app = createApp({});
-
-app.mount("#main");
