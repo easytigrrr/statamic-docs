@@ -126,7 +126,7 @@ The searchables value determines what items are contained in a given index. By p
 
 #### Possible options include:
 
-- `all`
+- `content`
 - `collection:*`
 - `collection:{collection handle}`
 - `taxonomy:{taxonomy handle}`
