@@ -21,7 +21,7 @@
 @layer elements {
     .c-entry-content {
         /* Sometimes there are p tags in tables e.g. >> /tags */
-        p:not(table *, .ui-component-example__render *, [data-dismissable-layer] *) {
+        p:not(table *) {
             /* Rem instead of em because of p tags inside li tags e.g. e.g. >> /fields */
             font-size: var(--font-size-md-rem);
         }

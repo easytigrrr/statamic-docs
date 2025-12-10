@@ -52,18 +52,18 @@
         - Don't affect the header
         - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
     */
-    :not(.ui-component-example__render *, [data-dismissable-layer] *) {
+    
         main &:is(.c-btn, button):not(:last-child) {
             margin-right: 1rem;
         }
-        &button,
-        &[type="search"],
-        &[type="submit"] {
+        button,
+        [type="search"],
+        [type="submit"] {
             /* Cancel default button appearance */
             -webkit-appearance: none!important;
             border: none;
         }
-        &button {
+        button {
             /* Improve usability */
             cursor: pointer;
             /* Cancel default button appearance */
@@ -71,7 +71,6 @@
             /* To combat -apple-system-blueinput on iOS 15 */
             color: var(--color-primary-text);
         }
-    }
 }
 @layer components {
     button svg {
