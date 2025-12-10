@@ -53,24 +53,24 @@
         - Not .c-btn + .c-btn in case a button is next to a different tag such as <p/>
     */
     
-        main &:is(.c-btn, button):not(:last-child) {
-            margin-right: 1rem;
-        }
-        button,
-        [type="search"],
-        [type="submit"] {
-            /* Cancel default button appearance */
-            -webkit-appearance: none!important;
-            border: none;
-        }
-        button {
-            /* Improve usability */
-            cursor: pointer;
-            /* Cancel default button appearance */
-            background: none;
-            /* To combat -apple-system-blueinput on iOS 15 */
-            color: var(--color-primary-text);
-        }
+    main &:is(.c-btn, button):not(:last-child) {
+        margin-right: 1rem;
+    }
+    button,
+    [type="search"],
+    [type="submit"] {
+        /* Cancel default button appearance */
+        -webkit-appearance: none!important;
+        border: none;
+    }
+    button {
+        /* Improve usability */
+        cursor: pointer;
+        /* Cancel default button appearance */
+        background: none;
+        /* To combat -apple-system-blueinput on iOS 15 */
+        color: var(--color-primary-text);
+    }
 }
 @layer components {
     button svg {
