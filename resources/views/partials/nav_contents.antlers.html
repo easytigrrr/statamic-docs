@@ -22,7 +22,7 @@
                 <li>
                         <a
                             href="{{ url }}"
-                            {{ if segment_2 === slug }}class="o-current-menu-item"{{ /if }}
+                            {{ if last_segment === slug }}class="o-current-menu-item"{{ /if }}
                         >
                             {{ nav_title ?? title }}
                         </a>
