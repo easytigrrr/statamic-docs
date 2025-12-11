@@ -16,7 +16,7 @@ Arguably one of the best ways to build modern content-driven WordPress sites —
 Instead of this custom field approach being an afterthought, Statamic was built from the ground up with this approach with 40 different [fieldtypes](/reference/fieldtypes) that you can organize into [blueprints](/blueprints) and reusable fieldsets.
 
 <figure>
-    <img src="/img/blueprints.png" alt="The Statamic blueprint configuration screen">
+    <img src="/img/blueprints.webp" alt="The Statamic blueprint configuration screen">
     <figcaption>A glimpse at configuring a blueprint.</figcaption>
 </figure>
 
@@ -33,7 +33,7 @@ If you've been working with a Gutenberg or Page Builder approach, take a look at
 These can be used to create numerous components that can be combined as a "page builder" allowing your content team to create and rearrange pages without ever worrying about what it looks like.
 
 <figure>
-    <img src="/img/fieldtypes/screenshots/v4/bard-with-sets.png" width="597" alt="Bard Fieldtype UI">
+    <img src="/img/fieldtypes/screenshots/v6/bard-with-sets.webp" width="597" alt="Bard Fieldtype UI">
     <figcaption>The Bard Fieldtype in action.</figcaption>
 </figure>
 
