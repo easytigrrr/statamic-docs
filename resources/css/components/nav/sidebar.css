@@ -61,6 +61,8 @@
             svg {
                 color: var(--color-primary-text);
                 font-size: 1.3em;
+                /* Prevent the mobile nav button from getting squashed on pages with long code overflow areas such as /advanced-topics/oauth */
+                min-width: 1.28rem;
             }
         }
         /* GROUP COMPONENTS / NAV DROPDOWN WITH POPOVER API AND ANCHOR POSITIONING / CLOSE BUTTON
