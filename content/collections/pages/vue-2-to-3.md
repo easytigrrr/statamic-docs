@@ -576,6 +576,36 @@ import { Input, Textarea, Combobox, Switch } from '@statamic/cms/ui'; // [tl! ++
 </template>
 ```
 
+## Modals and Stacks
+
+Previously, you had to use `v-if` to control the "open state" of Modals and Stacks. You should now `v-model` the open state instead:
+
+```vue
+<!-- Using v-model -->
+<Modal v-model:open="isModalOpen">
+<Stack v-model:open="isStackOpen">
+
+<!-- Using a prop & event listener -->
+<Modal :open="isModalOpen" @update:open="modalOpenUpdated">
+<Stack :open="isStackOpen" @update:open="stackOpenUpdated">
+```
+
+Alternatively, you may provide a `trigger` slot where the modal/stack will maintain the open state internally:
+
+```vue
+<Stack>
+  <template #trigger>
+    <Button>Click Me!</Button>
+  </template>
+</Stack>
+```
+
+Modals and Stacks now accept `title` and `icon` props which will be used to render the modal/stack header:
+
+```vue
+<Stack :title="__('How neat is that?')" icon="playground">
+```
+
 ## HMR and Vue Devtools
 
 To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build" of Statamic.
