@@ -209,11 +209,11 @@ The `PublishContainer` component accepts various props and emits various events:
 | `asConfig`                  | boolean | Marks it as a "config" form, which renders slightly differently. Defaults to `false`                |
 | `rememberTab`               | boolean | Determines whether the active tab is remembered in the URL hash. Defaults to `false`                |
 
-| Event                   | Description                                                                                        |
-|-------------------------|----------------------------------------------------------------------------------------------------|
-| `update:modelValue`     | Emitted when publish form values are updated.                                                      |
-| `update:visibleValues`  | Emitted when the form's "visible values" are updated (values from fields not hidden by conditions) |
-| `update:modifiedFields` | Emitted when the `modifiedFields` state is updated.                                                |
+| Event                   | Description                                                                                             |
+|-------------------------|---------------------------------------------------------------------------------------------------------|
+| `update:modelValue`     | Emits the publish form's values when they're updated.                                                   |
+| `update:visibleValues`  | Emits the form's "visible values" when fields are updated (values from fields not hidden by conditions) |
+| `update:modifiedFields` | Emits the `modifiedFields` state when a field's value is changed for the first time.                    |
 
 
 ### Handling the form submission
