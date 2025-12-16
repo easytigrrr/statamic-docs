@@ -27,7 +27,7 @@ Route::permanentRedirect('extending/modals', '/vue-components/modals');
 Route::permanentRedirect('extending/modifiers', '/modifiers/modifiers');
 Route::permanentRedirect('extending/permissions', '/control-panel/permissions');
 Route::permanentRedirect('extending/progress', '/vue-components/progress');
-Route::permanentRedirect('extending/publish-components', '/vue-components/publish-components');
+Route::permanentRedirect('extending/publish-components', '/control-panel/publish-forms');
 Route::permanentRedirect('extending/publish-forms', '/control-panel/publish-forms');
 Route::permanentRedirect('extending/query-scopes-and-filters', '/backend-apis/query-scopes-and-filters');
 Route::permanentRedirect('extending/relationship-fieldtypes', '/fieldtypes/relationship-fieldtypes');

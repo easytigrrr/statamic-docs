@@ -1,22 +1,15 @@
 ---
 title: 'Publish Forms'
 intro: |
-  Build custom forms by harnessing the power of Blueprints and fieldtypes.
+  Build custom forms by harnessing the power of Blueprints and Fieldtypes.
 id: b4b46ceb-9feb-4587-8f0d-2080511bf9e3
 ---
 
 ## Overview
 
-:::warning
-Publish Forms have changed significantly in v6, so these docs are out-of-date.
+When creating or editing content (entries, pages, etc), you are presented with a form view. This is what we call the "Publish" form. You're free to use these in your own addons or custom features.
 
-We're doing some major reorganizing of the docs for the v6 launch and will have complete documentation sometime between now and then.
-:::
-
-When creating or editing content (entries, pages, etc), you are presented with a form view. This is what we call
-the "Publish" form. You're free to use these in your own addons or custom features.
-
-The publish form flow would essentially be this:
+The publish form flow looks like this:
 
 - Get a blueprint
 - Get some data
@@ -27,11 +20,99 @@ The publish form flow would essentially be this:
 - Blueprint does some post-processing on the data
 - Do something with the data
 
-## Preparing for the front-end
+The required components depends on the complexity of what you're building.
+
+- Very simple forms may not need any Vue or JavaScript at all, and could simply use the `PublishForm` class directly from your controller.
+- If you need JavaScript or Vue, the `PublishContainer` component can be paired with blueprint data to render an entire form.
+- The `PublishContainer` component can have its contents overridden if you need more control over the layout or behavior of the form.
+
+## Simple Forms
+
+You can create a basic Publish Form without having to think about Vue or Blade. 
+
+You'll need a route and a controller. The controller needs to get the blueprint and its values, as well as store the updated values.
+
+For example, if you wanted to create a Publish Form for an Eloquent model, the code might look like this:
+
+```php
+use Statamic\Facades\Blueprint;
+
+class Thing extends Model
+{
+    public function values(): array
+    {
+        return [
+            'name' => $this->name,
+            'description' => $this->description,
+        ];       
+    }
+
+    public function blueprint()
+    {
+        return Blueprint::make(...);
+    }
+}
+```
+
+```php
+Route::get('things/{thing}', [ThingController::class, 'edit'])->name('thing.edit');
+Route::patch('things/{thing}', [ThingController::class, 'update'])->name('thing.update');
+```
+
+```php
+use App\Models\Thing;
+use Illuminate\Support\Request;
+use Statamic\CP\PublishForm;
+
+class ThingController
+{
+    public function edit(Thing $thing)
+    {
+        return PublishForm::make($thing->blueprint())
+            ->values($thing->values())
+            ->submittingTo(cp_route('thing.update', $thing));
+    }
+
+    public function update(Request $request, Thing $thing)
+    {
+        $values = PublishForm::make($thing->blueprint())->submit($request->all());
+        
+        $thing->update($values);
+    }
+}
+```
+
+The `PublishForm` class accepts various other methods:
+
+| Method                        | Description                                                       |
+|-------------------------------|-------------------------------------------------------------------|
+| `title($title)`               | Title of the publish form page.                                   |
+| `icon($icon)`                 | Icon to be shown in the header, next to the page title.           |
+| `values($values)`             | The publish form values.                                          |
+| `parent($parent)`             | Provides a "parent" object to the fieldtypes                      |
+| `readOnly()`                  | Marks the publish form as read-only.                              |
+| `asConfig()`                  | Marks it as a "config" form, which renders slightly differently.  |
+| `submittingTo($url, $method)` | Specify the submission URL and HTTP method (defaults to `PATCH`). |
+
+## Complex Forms
+
+For more complex forms, you can use the underlying components to build out the functionality you need.
+
+You'll need a route and controller on the backend, and a Vue component on the frontend responsible for holding the form's values and submitting them somewhere.
+
+### Preparing for the front-end
 
 For example's sake, we'll be using the publish form to update Eloquent models (a `Product` model), much like a typical Laravel application.
 
+```php
+Route::get('products/{product}', [ProductController::class, 'edit'])->name('product.edit');
+Route::patch('products/{product}', [ProductController::class, 'update'])->name('product.update');
+```
+
 ``` php
+use App\Models\Product;
+use Inertia\Inertia;
+
 public function edit(Product $product)
 {
     // Get an array of values from the item that you want to be populated
@@ -56,9 +137,10 @@ public function edit(Product $product)
 
     // You'll probably prefer chaining all of that.
     // $fields = $blueprint->fields()->addValues($values)->preProcess();
-
-    // The vue component will need these three values at a minimum.
-    return view('form', [
+    
+    // We're returning a Vue component here with Inertia. We're passing 
+    // the blueprint, the values and the meta.
+    return Inertia::render('app::Products/Edit', [
         'blueprint' => $blueprint->toPublishArray(),
         'values'    => $fields->values(),
         'meta'      => $fields->meta(),
@@ -66,39 +148,142 @@ public function edit(Product $product)
 }
 ```
 
-## The front-end
-
-Statamic provides an opinionated `PublishForm` that will render a form based on a blueprint, handle submitting it via AJAX,
-handle validation, add a page title with breadcrumbs, and a bunch of other stuff.
-
-You can put the component directly in your Blade view, or within another Vue component.
-
-``` blade
-@extends('statamic::layout')
-
-@section('content')
-    <publish-form
-        title="My Form"
-        action="{{ cp_route('test.update') }}"
-        :blueprint='@json($blueprint)'
-        :meta='@json($meta)'
-        :values='@json($values)'
-    ></publish-form>
-@stop
-```
-
 :::tip
-Using the `@json` Blade directive in element attributes like this requires that it be surrounded by single quotes.
+If you haven't already, now is a good time to [set up JavaScript & Vite](https://v6.statamic.dev/control-panel/css-javascript) for the Control Panel.
 :::
 
-Read more about [the publish form component](/extending/publish-components#form) to find out about its props and events.
+### The front-end
+
+Statamic provides a `PublishContainer` component, which is the workhorse of any publish form. Most of the time, you can use it self-closed with some props, and it will render exactly what you need.
+
+```vue
+<script setup>
+import { Header, PublishContainer } from '@statamic/cms/ui';
+
+defineProps({
+    blueprint: Object,
+    values: Object,
+    meta: Object,
+});
+</script>
+
+<template>
+    <Header title="Edit Product" />
+    
+    <PublishContainer
+        v-model="values"
+        :blueprint="blueprint"
+        :meta="meta"
+    />
+</template>
+```
+
+The Publish Container will render any tabs, sections and fields appropriately based on the provided `blueprint`.
+
+You may customize the layout of the form by providing slot content.
+
+```html
+<PublishContainer>
+    <Tabs />
+    <!-- etc -->
+</PublishContainer>
+```
+
+The `PublishContainer` component accepts various props and emits various events:
+
+| Prop                        | Type    | Description                                                                                         |
+|-----------------------------|---------|-----------------------------------------------------------------------------------------------------|
+| `reference`                 | string  | Reference of the item being edited. eg. `entry::the-entry-id`                                       |
+| `blueprint`                 | object  | **Required.** The blueprint's publish array.                                                        |
+| `modelValue`                | object  | Publish form values.                                                                                |
+| `extraValues`               | object  | Extra values to be made available to field conditions.                                              |
+| `meta`                      | object  | **Required.** Fieldtype metadata                                                                    |
+| `originValues`              | object  | Publish form values from the origin localization.                                                   |
+| `originMeta`                | object  | Fieldtype metadata from the origin localization.                                                    |
+| `errors`                    | object  | Validation errors.                                                                                  |
+| `site`                      | string  | The site handle of the active localization.                                                         |
+| `modifiedFields`            | array   | Array of field handles, indicating which fields have changed.                                       |
+| `trackDirtyState`           | boolean | Determines whether dirty state tracking is enabled. Defaults to `true`                              |
+| `syncFieldConfirmationText` | string  | Confirmation text when syncing a localized field with the origin value. Defaults to `Are you sure?` |
+| `readOnly`                  | boolean | Marks the publish form as read-only. Defaults to `false`                                            |
+| `asConfig`                  | boolean | Marks it as a "config" form, which renders slightly differently. Defaults to `false`                |
+| `rememberTab`               | boolean | Determines whether the active tab is remembered in the URL hash. Defaults to `false`                |
+
+| Event                   | Description                                                                                        |
+|-------------------------|----------------------------------------------------------------------------------------------------|
+| `update:modelValue`     | Emitted when publish form values are updated.                                                      |
+| `update:visibleValues`  | Emitted when the form's "visible values" are updated (values from fields not hidden by conditions) |
+| `update:modifiedFields` | Emitted when the `modifiedFields` state is updated.                                                |
 
 
-## Handling the form submission
+### Handling the form submission
 
-The Vue component on the front-end will submit back to a URL of your choosing.
+The `SavePipeline` pairs with a `PublishContainer` to save your data, render any validation errors, fire hooks, etc. 
 
-``` php
+The data from your Publish Container will be sent `through` the steps. The only required step is the `Request`.
+
+You provide the pipeline class with a reference to the Publish Container, the saving state, and errors, and it will update them for you appropriately. 
+
+You may provide additional steps, such as the `AfterSaveHooks` here.
+
+Once everything is done, the `then` callback will be run, like a promise. 
+
+Any errors can be caught in the `catch` callback. If the pipeline is intentionally stopped, `e` will be an instance of `PipelineStopped`.
+
+```vue
+<script setup>
+import { Header, PublishContainer } from '@statamic/cms/ui';
+import { Pipeline, BeforeSaveHooks, Request, AfterSaveHooks } from '@statamic/cms/save-pipeline'; // [tl! add]
+import { ref, useTemplateRef } from 'vue'; // [tl! add]
+
+defineProps({
+	blueprint: Object,
+	values: Object,
+	meta: Object,
+});
+
+let saving = ref(false); // [tl! add:2]
+let errors = ref({});
+let container = useTemplateRef('container');
+
+function save() { // [tl! add:14]
+    new Pipeline()
+        .provide({ container, errors, saving })
+        .through([
+	        new BeforeSaveHooks('product'),
+            new Request('/cp/products/{product}', 'PATCH'),
+            new AfterSaveHooks('product'),
+        ])
+        .then((response) => {
+            //
+        })
+        .catch((e) => {
+            //
+        });
+}
+</script>
+
+<template>
+	<Header title="Edit Product">
+	    <Button text="Save" :disabled="saving" @click="save" /> <!-- [tl! add] -->
+	</Header>
+	<!-- [tl! add:2,1] [tl! add:6,1] -->
+	<PublishContainer
+		ref="container"
+		v-model="values"
+		:blueprint="blueprint"
+		:meta="meta"
+        :errors="errors"
+	/>
+</template>
+```
+
+In your controller, you'll need to get the blueprint, validate the values and process them before updating your model.
+
+```php
+use App\Models\Product;
+use Illuminate\Http\Request;
+
 public function update(Request $request, Product $product)
 {
     $blueprint = $this->getBlueprint();
@@ -121,23 +306,21 @@ public function update(Request $request, Product $product)
 }
 ```
 
-You've just rendered an item in form and handled updating it. Awesome!
+You've just rendered an item in a Publish Form and handled updating it! Give yourself a pat on the back. 👏
 
 :::tip
 Since the values are being processed through the blueprint's fieldtypes, their values will be saved in such a way that you may need augmentation to use them.
 
-For instance, an assets fieldtype will save an array of paths relative to the configured asset container, and when augmented will return an array of Asset objects. So, you may want to make sure that when you retrieve your data later, that it's [augmented](/extending/augmentation).
+For instance, the assets fieldtype will save an array of paths relative to the configured asset container, and when augmented will return an array of Asset objects. So, you may want to make sure that when you retrieve your data later, that it's [augmented](/extending/augmentation).
 :::
-
 
 ## Blueprints
 
-In the examples above, we just said "get a blueprint". There are a couple of ways to do this:
+In the examples above, we just said "get a blueprint" but didn't tell you _how_ to get a blueprint. There's a couple ways to do it:
 
 ### Get an actual user defined blueprint
 
-Get one from where all the blueprints are typically stored, by its handle.
-If it doesn't exist, it'll return null.
+Get one from where all the blueprints are typically stored, by its handle. If it doesn't exist, it'll return `null`.
 
 ``` php
 use Statamic\Facades\Blueprint;
