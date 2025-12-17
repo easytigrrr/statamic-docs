@@ -37,7 +37,7 @@ For example, if you wanted to create a Publish Form for an Eloquent model, the c
 ```php
 use Statamic\Facades\Blueprint;
 
-class Thing extends Model
+class Product extends Model
 {
     public function values(): array
     {
@@ -55,29 +55,29 @@ class Thing extends Model
 ```
 
 ```php
-Route::get('things/{thing}', [ThingController::class, 'edit'])->name('thing.edit');
-Route::patch('things/{thing}', [ThingController::class, 'update'])->name('thing.update');
+Route::get('products/{product}', [ProductController::class, 'edit'])->name('product.edit');
+Route::patch('products/{product}', [ProductController::class, 'update'])->name('product.update');
 ```
 
 ```php
-use App\Models\Thing;
+use App\Models\Product;
 use Illuminate\Support\Request;
 use Statamic\CP\PublishForm;
 
-class ThingController
+class ProductController
 {
-    public function edit(Thing $thing)
+    public function edit(Product $product)
     {
-        return PublishForm::make($thing->blueprint())
-            ->values($thing->values())
-            ->submittingTo(cp_route('thing.update', $thing));
+        return PublishForm::make($product->blueprint())
+            ->values($product->values())
+            ->submittingTo(cp_route('product.update', $product));
     }
 
-    public function update(Request $request, Thing $thing)
+    public function update(Request $request, Product $product)
     {
-        $values = PublishForm::make($thing->blueprint())->submit($request->all());
+        $values = PublishForm::make($product->blueprint())->submit($request->all());
         
-        $thing->update($values);
+        $product->update($values);
     }
 }
 ```
