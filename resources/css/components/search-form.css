@@ -187,13 +187,13 @@
     }
 }
 .docsearch-modal {
-    border-radius: 15px!important;
+    border-radius: 35px!important;
 }
 .docsearch-modal-search-input-form {
-    border-radius: 12px!important;
+    border-radius: 100px!important;
 }
 .docsearch-modal-footer {
-    border-radius: 0 0 10px 10px!important;
+    border-radius: 0 0 15px 15px!important;
 }
 .docsearch-modal-search-input {
     margin-block-end: 0;
