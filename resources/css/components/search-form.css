@@ -195,7 +195,7 @@
     }
 }
 .docsearch-modal {
-    border-radius: 35px!important;
+    border-radius: 40px!important;
 }
 .docsearch-modal-search-input-form {
     border-radius: 100px!important;
@@ -222,5 +222,18 @@
     filter: grayscale(100%);
     @container style(--color-scheme: dark) {
         filter: grayscale(100%) invert(1);
+    }
+}
+
+.docsearch-modal,
+.docsearch-modal-search-input-form,
+.docsearch-modal-footer {
+    corner-shape: squircle;
+}
+/* --mq-nav-open-after */
+@media (width >= 1100px) {
+    .docsearch-btn,
+    .c-search-form {
+        corner-shape: squircle;
     }
 }
