@@ -114,6 +114,14 @@
             }
         }
     }
+    .docsearch-modal {
+        position: relative;
+        top: 1.5%;
+        height: 97%!important;
+        width: 95%!important;
+        left: 50%!important;
+        transform: translateX(-50%);
+    }
 }
 /* --mq-nav-expanded-before */
 @media (width < 680px) {
