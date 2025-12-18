@@ -189,31 +189,7 @@ You may customize the layout of the form by providing slot content.
 </PublishContainer>
 ```
 
-The `PublishContainer` component accepts various props and emits various events:
-
-| Prop                        | Type    | Description                                                                                         |
-|-----------------------------|---------|-----------------------------------------------------------------------------------------------------|
-| `reference`                 | string  | Reference of the item being edited. eg. `entry::the-entry-id`                                       |
-| `blueprint`                 | object  | **Required.** The blueprint's publish array.                                                        |
-| `modelValue`                | object  | Publish form values.                                                                                |
-| `extraValues`               | object  | Extra values to be made available to field conditions.                                              |
-| `meta`                      | object  | **Required.** Fieldtype metadata                                                                    |
-| `originValues`              | object  | Publish form values from the origin localization.                                                   |
-| `originMeta`                | object  | Fieldtype metadata from the origin localization.                                                    |
-| `errors`                    | object  | Validation errors.                                                                                  |
-| `site`                      | string  | The site handle of the active localization.                                                         |
-| `modifiedFields`            | array   | Array of field handles, indicating which fields have changed.                                       |
-| `trackDirtyState`           | boolean | Determines whether dirty state tracking is enabled. Defaults to `true`                              |
-| `syncFieldConfirmationText` | string  | Confirmation text when syncing a localized field with the origin value. Defaults to `Are you sure?` |
-| `readOnly`                  | boolean | Marks the publish form as read-only. Defaults to `false`                                            |
-| `asConfig`                  | boolean | Marks it as a "config" form, which renders slightly differently. Defaults to `false`                |
-| `rememberTab`               | boolean | Determines whether the active tab is remembered in the URL hash. Defaults to `false`                |
-
-| Event                   | Description                                                                                             |
-|-------------------------|---------------------------------------------------------------------------------------------------------|
-| `update:modelValue`     | Emits the publish form's values when they're updated.                                                   |
-| `update:visibleValues`  | Emits the form's "visible values" when fields are updated (values from fields not hidden by conditions) |
-| `update:modifiedFields` | Emits the `modifiedFields` state when a field's value is changed for the first time.                    |
+Please see our [UI Component docs](https://statamic.dev/?path=/docs/components-publishcontainer--docs&args=icon:hr) for full information on the available props and events.
 
 
 ### Handling the form submission
