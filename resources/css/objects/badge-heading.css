@@ -42,8 +42,8 @@
 }
 @layer scope {
     .o-badge-heading {
-        /* --mq-wide-after */
-        @media (width >= 1650px) {
+        /* Custom */
+        @media (width >= 1460px) {
             > :has(img) {
                 /* Pull it out of the flow to let the layout breathe */
                 position: absolute;
