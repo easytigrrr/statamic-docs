@@ -142,8 +142,8 @@ public function edit(Product $product)
     // the blueprint, the values and the meta.
     return Inertia::render('app::Products/Edit', [
         'blueprint' => $blueprint->toPublishArray(),
-        'values'    => $fields->values(),
-        'meta'      => $fields->meta(),
+        'initialValues' => $fields->values(),
+        'initialMeta' => $fields->meta(),
     ]);
 }
 ```
@@ -160,11 +160,14 @@ Statamic provides a `PublishContainer` component, which is the workhorse of any 
 <script setup>
 import { Header, PublishContainer } from '@statamic/cms/ui';
 
-defineProps({
+const props = defineProps({
     blueprint: Object,
-    values: Object,
-    meta: Object,
+    initialValues: Object,
+    initialMeta: Object,
 });
+
+const values = ref(props.initialValues);
+const meta = ref(props.initialMeta);
 </script>
 
 <template>
@@ -214,13 +217,15 @@ import { ref, useTemplateRef } from 'vue'; // [tl! add]
 
 defineProps({
 	blueprint: Object,
-	values: Object,
-	meta: Object,
+	initialValues: Object,
+	initialMeta: Object,
 });
 
-let saving = ref(false); // [tl! add:2]
-let errors = ref({});
-let container = useTemplateRef('container');
+const values = ref(props.initialValues);
+const meta = ref(props.initialMeta);
+const saving = ref(false); // [tl! add:2]
+const errors = ref({});
+const container = useTemplateRef('container');
 
 function save() { // [tl! add:14]
     new Pipeline()
@@ -241,7 +246,7 @@ function save() { // [tl! add:14]
 
 <template>
 	<Header title="Edit Product">
-	    <Button text="Save" :disabled="saving" @click="save" /> <!-- [tl! add] -->
+	    <Button text="Save" variant="primary" :disabled="saving" @click="save" /> <!-- [tl! add] -->
 	</Header>
 	<!-- [tl! add:2,1] [tl! add:6,1] -->
 	<PublishContainer
