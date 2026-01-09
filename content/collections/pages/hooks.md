@@ -178,6 +178,8 @@ For more information about this hook, see the docs on [Static Caching](/static-c
 Triggered at the end of the `multisite` command. This hook allows you to run code when an app is being converted from a single-site to a multi-site.
 The payload is `null`.
 
+### GetItemsContainingData: `additional`
+Triggered when updating asset and term references. This hook allows you to return additional content to be updated. You should return a [`LazyCollection`](https://laravel.com/docs/12.x/collections#lazy-collections).
 
 ## Triggering your own hooks
 
