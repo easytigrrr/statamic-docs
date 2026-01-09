@@ -606,6 +606,20 @@ Modals and Stacks now accept `title` and `icon` props which will be used to rend
 <Stack :title="__('How neat is that?')" icon="playground">
 ```
 
+### Confirmation Modals
+
+The Confirmation Modal component has also been updated. You should replace usage of `<confirmation-modal>` with either:
+
+- `<ui-confirmation-modal>`
+- `import { ConfirmationModal } from '@statamic/cms/ui'` and `<ConfirmationModal>`
+
+You'll also need to adjust the open state logic from the previous `v-if` to the new `v-model:open` or `:open`:
+
+```html
+<confirmation-modal v-if="isConfirming" ...> <!-- [tl! remove] -->
+<ui-confirmation-modal v-model:open="isConfirming" ...> <!-- [tl! add] -->
+```
+
 ## HMR and Vue Devtools
 
 To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you will need to publish a special "dev build" of Statamic.
