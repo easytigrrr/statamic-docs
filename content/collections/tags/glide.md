@@ -431,6 +431,27 @@ _Note: All Glide generated images are cropped at their focal point, unless you d
 'auto_crop' => true,
 ```
 
+
+### focus_css
+
+You may use the [`focus_css`](/variables/focus_css) variable to get an asset's focal point in a format suitable for the `background-position` CSS property. 
+
+::tabs
+
+::tab antlers
+```antlers
+{{ focus_css }}
+```
+::tab blade
+```blade
+{{ $focus_css }}
+```
+::
+
+```html
+50% 30%
+```
+
 ## Unsupported formats
 
 Glide will resize whatever images it supports, like jpgs or pngs. If you pass an unsupported type to Glide, like an svg, it'll just return the unmodified URL.
