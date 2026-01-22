@@ -1,7 +1,7 @@
 ---
 title: Multi-Site
 intro: |
-    Statamic's multi-site capabilities are designed to manage a **single site** or site network with multiple localizations, variations, or sections running on one or more domains or subdomains. It can be used to manage translations, country-specific versions of a company site, and other similar use cases. _It is not intended to be used for multi-tenant applications._
+    Statamic's multi-site capabilities are designed to manage variations of a **single site**, and/or different sections of a singkle site running on one or more domains or subdomains. It can be used to manage translations, country-specific versions of a company site, put an area such as `support` or `resources` on a subdomain, and other similar use cases. _It is not intended to be used for multi-tenant applications_ running completely separate sites.
 template: page
 id: fb20f2e0-3881-43e6-8507-3308a18c54b0
 blueprint: page
@@ -17,8 +17,10 @@ Each site can have different base URLs:
 - subdomains: `example.com` and `fr.example.com`
 - subdirectories: `example.com` and `example.com/fr/`
 
+If you're looking to run many independent websites from a shared codebase, multi-site is not the right tool. We are intentionally opinionated here, and you should explore our [Platform Pricing](https://statamic.com/pricing/platform) model
+
 ::: tip
-Every Statamic install needs at least one site. Building zero sites is a bad way to build a website and clients will probably challenge any invoices.
+Every Statamic install needs at least one site. Building zero sites is a bad way to build a website and clients will probably challenge your invoices.
 :::
 
 ### Converting existing content to multi-site
