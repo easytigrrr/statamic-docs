@@ -475,7 +475,7 @@ return [
                         '/blog',
                         '/blog/category/*',
                         '/',
-                    ]
+                    ],
                 ],
             ],
             'taxonomies' => [
@@ -484,36 +484,38 @@ return [
                         '/blog',
                         '/blog/category/*',
                         '/',
-                    ]
-                ]
+                    ],
+                ],
             ],
             'globals' => [
                 'settings' => [
                     'urls' => [
                         '/*'
-                    ]
-                ]
+                    ],
+                ],
             ],
             'navigation' => [
                 'links' => [
                     'urls' => [
                         '/*'
-                    ]
-                ]
-            ]
-        ]
-    ]
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
 ```
 
 #### Explanation
 
-- “when an entry in the blog collection is saved, we should invalidate the /blog page, any pages beginning with /blog/category/, and the home page.”
+- “when an entry in the blog collection is saved, we should invalidate the `/blog` page, any pages beginning with `/blog/category/`, and the home page.”
 - “when a term in the tags taxonomy is saved, we should invalidate those same pages”
 - “when the settings global set is saved, we invalidate all urls”
 - “when the links navigation is saved, we invalidate all urls”
 
-You may add as many collections and taxonomies as you need.
+You may add as many rules as you need.
+
+#### Invalidating the entire static cache
 
 You may also choose to invalidate the entire static cache by specifying `all`.
 
@@ -525,6 +527,24 @@ return [
     ],
 ];
 ```
+
+#### Using fields in invalidation rules
+
+You may even use fields from your entry or term's data in invalidation rules, with support for basic if statements!
+
+```php
+'collections' => [
+    'pages' => [
+        'urls' => [
+            '/{parent_uri}',
+            '/offices/{office_slug}/*',
+            '{{ if office_is_headquarters }}/corporate{{ /if }}',
+        ],
+    ],
+],
+```
+
+As a bonus, you can also use `{parent_uri}` to invalidate the parent entry's URI.
 
 ### On a schedule
 
