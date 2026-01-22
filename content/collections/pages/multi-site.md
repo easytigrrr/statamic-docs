@@ -1,7 +1,7 @@
 ---
 title: Multi-Site
 intro: |
-    Statamic's multi-site capabilities are designed to manage variations of a **single site**, and/or different sections of a singkle site running on one or more domains or subdomains. It can be used to manage translations, country-specific versions of a company site, put an area such as `support` or `resources` on a subdomain, and other similar use cases. _It is not intended to be used for multi-tenant applications_ running completely separate sites.
+    Statamic's multi-site capabilities are designed to manage variations of a **single site**, and/or different sections of a single site running on one or more domains or subdomains. It can be used to manage translations, country-specific versions of a company site, put an area such as `support` or `resources` on a subdomain, and other similar use cases. _It is not intended to be used for multi-tenant applications_ running completely separate sites.
 template: page
 id: fb20f2e0-3881-43e6-8507-3308a18c54b0
 blueprint: page
