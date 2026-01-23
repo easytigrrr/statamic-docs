@@ -58,6 +58,19 @@ start_page: collections/articles
 
 Role and user preferences are stored in their existing respective locations as the same array in a `preferences` key.
 
+## Themes
+
+Themes let you control the look and feel of the Control Panel.
+
+Choose from community-made themes, or create your own by assigning colours from the Tailwind palette to each UI role. Selecting a theme previews it instantly, updating the Control Panel in real time.
+
+Custom themes can be shared and published for others to install.
+
+<figure>
+    <img src="/img/preferences-theme.webp" alt="Theme Preferences" class="u-hide-in-dark-mode">
+    <img src="/img/preferences-theme-dark.webp" alt="Theme Preferences" class="u-hide-in-light-mode">
+    <figcaption>Let's give the set a preview.</figcaption>
+</figure>
 
 ## Adding fields
 
