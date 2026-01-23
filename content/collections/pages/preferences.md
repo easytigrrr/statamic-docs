@@ -69,7 +69,6 @@ Custom themes can be shared and published for others to install.
 <figure>
     <img src="/img/preferences-theme.webp" alt="Theme Preferences" class="u-hide-in-dark-mode">
     <img src="/img/preferences-theme-dark.webp" alt="Theme Preferences" class="u-hide-in-light-mode">
-    <figcaption>Let's give the set a preview.</figcaption>
 </figure>
 
 ## Adding fields
