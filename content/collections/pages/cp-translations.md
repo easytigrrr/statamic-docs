@@ -77,13 +77,13 @@ There are 4 steps.
 1. Clone [`statamic/cms`](https://github.com/statamic/cms) locally
 2. Run `composer install`
 3. Generate a new translation from source files
-4. Translate new message files in `resources/lang`
+4. Translate new message files in `lang`
 5. Add the language to the [array in CorePreferences](https://github.com/statamic/cms/blob/cce7045e3f0ff418ee6e0a982a3830d604c6b64c/src/Preferences/CorePreferences.php#L56-L82) so it's selectable
 6. Commit changes and submit a PR
 
 ### Generating translation files
 
-Run the `translator generate` command in the `statamic/cms` project, along with the new language code as an argument. This will generate empty JSON and PHP files in `resources/lang` ready to be translated into the locale of your choice.
+Run the `translator generate` command in the `statamic/cms` project, along with the new language code as an argument. This will generate empty JSON and PHP files in `lang` ready to be translated into the locale of your choice.
 
 You can specify a short 2 character language code (`es`) or the full 4 character regional code (`es_MX`).
 
@@ -99,7 +99,7 @@ php translator generate eo
 - Translatable strings can contain the `:something` format to indicate a variable.
 
 ``` files theme:serendipity-light
-resources/lang/
+lang/
 |-- eo/
 |   |-- markdown.php
 |   |-- messages.php
