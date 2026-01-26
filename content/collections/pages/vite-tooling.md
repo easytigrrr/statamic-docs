@@ -155,13 +155,13 @@ ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-
 Statamic will use the dev build as long as `APP_DEBUG=true` in your `.env` and the `public/vendor/statamic/cp-dev` directory exists. You **shouldn't** commit these or use this on production.
 
 :::tip
-If you're using Valet with a secured site, your JS might not be loading correctly due to access control checks. You'll need Vite know about your Laravel site in `vite.config.js`.
+If you're using Herd or Valet with a secured site, your JS might not be loading correctly due to access control checks. You'll need Vite know about your Laravel site in `vite.config.js`.
 
 ```js
 export default defineConfig({
     plugins: [
         laravel({
-            valetTls: 'yoursite.test', // [tl! ++]
+            detectTls: 'yoursite.test', // [tl!++]
             input: [
 ```
 :::
