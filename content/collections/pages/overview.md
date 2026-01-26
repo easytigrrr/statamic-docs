@@ -72,3 +72,33 @@ Finally, there are [globals](/globals).
 If something lives in one place but is used across the site — like header content, footer links, social profiles, or site-wide calls to action — globals are the right tool for the job.
 
 They keep shared content centralized, editable, and out of places where it doesn’t belong.
+
+## What to Avoid
+
+Most content modeling problems don’t show up on day one. They show up months later, when the site grows, the design changes, or someone asks, “Can we reuse this somewhere else?”
+
+Here are some common traps to avoid.
+
+### Modeling Pages Instead of Content
+
+If your content model mirrors your page layouts, you’re probably heading for trouble.
+
+Fields like `left_column_text`, `homepage_feature_1`, or `about_page_body` are a code smell. They bake presentation decisions directly into the content and make reuse painful or impossible. As soon as `left_column_text` ends up needing to be used on the right side somewhere, a fairy dies — and no amount of clapping can revive her.
+
+Model what the content **is**, not where it happens to live today.
+
+### Over-Modeling Everything
+
+Not everything needs to be perfectly modeled.
+
+If a piece of content is truly one-off, short-lived, or unlikely to be reused, don’t turn it into a dozen fields just because you can. Over-modeling can create friction and slow people down.
+
+Model for clarity and flexibility — not theoretical perfection.
+
+### Ignoring Future Change
+
+The biggest mistake is assuming today’s structure is permanent.
+
+Sites evolve. Designs change. Content gets reused in ways you didn’t anticipate. It gets pulled into mobile app or powers a customer-support ticketing app. A good content model leaves room for that without forcing a rewrite or migration.
+
+If your model _only_ works for the site you’re building right now, it’s probably too brittle.
