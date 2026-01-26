@@ -93,7 +93,7 @@ For help setting up Vite and Vue in your project, please see the [Vite Tooling](
 
 You can customize the nav item, description, icon, and other details on the index listing by chaining the corresponding methods.
 
-For icons you can pass an SVG as a string. Be sure to use `fill="currentColor"` to allow the UI to fit into the control panel.
+The `icon()` method accepts the name of an [icon included in Statamic](https://ui.statamic.dev/?path=/docs/components-icon--docs#available-icons), or an SVG string containing a custom icon (be sure to use `fill="currentColor"`):
 
 ``` php
 use Statamic\Facades\Utility;
@@ -105,6 +105,9 @@ public function boot()
             ->inertia('my-addon::DataWangjangler')
             ->title('Data Wangjangler')
             ->navTitle('Wangjangler')
+            // Icon included in Statamic
+            ->icon('share-mega-phone')
+            // Custom icon
             ->icon('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M246.0422 221.6193c-14.2079 -17.2455 -21.3609 -38.4104 -21.3609 -59.5753 0 -78.4865 94.0663 -156.875 188.1325 -156.875 51.9324 0 94.0662 42.1338 94.0662 94.0662 0 94.0662 -78.3885 188.1325 -156.973 188.1325 -21.1649 0 -42.3298 -7.153 -59.5753 -21.3609L58.6936 497.6449c-12.2482 12.2482 -32.1392 12.2482 -44.3875 0s-12.2482 -32.1393 0 -44.3875l231.7361 -231.6381Z" fill="currentColor" stroke-width="1"></path></svg>')
             ->description('Wanjangles your data at the click of a button.')
             ->docsUrl('https://yoursite.com/docs/wangjangler');

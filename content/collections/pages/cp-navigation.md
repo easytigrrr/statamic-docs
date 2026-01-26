@@ -49,11 +49,7 @@ Nav::extend(function ($nav) {
 });
 ```
 
-If you wish to use a custom SVG or one from the [Streamline Icon Pack](https://app.streamlinehq.com/icons/streamline-light) that's not included in Statamic, you may pass the SVG icon to the `icon()` method, in place of an icon name.
-
-:::tip
-You can access the complete set of default icons for the `icon()` method in the vendor files located at `vendor/statamic/cms/resources/svg/icons`. Alternatively, you can also view them directly [on GitHub](https://github.com/statamic/cms/tree/6.x/resources/svg/icons)
-:::
+The `icon()` method accepts the name of an [icon included in Statamic](https://ui.statamic.dev/?path=/docs/components-icon--docs#available-icons), or an SVG string containing a custom icon (be sure to use `fill="currentColor"`):
 
 ```php
 Nav::extend(function ($nav) {
