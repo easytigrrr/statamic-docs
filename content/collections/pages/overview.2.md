@@ -1,7 +1,7 @@
 ---
 id: 84100772-18e4-4a22-8759-219b242a320c
 blueprint: page
-title: Overview
+title: 'Frontend Overview'
 intro: "Frontend, backend, control panel, client-side, server-side, left-side, strong-side, front-side fakey 180...there's a lot of terminology flying around referring to the various aspects of a website. Let's clear 'em up, at least in the Statamic context."
 nav_title: Overview
 template: page
