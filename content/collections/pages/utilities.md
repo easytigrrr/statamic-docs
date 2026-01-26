@@ -134,7 +134,7 @@ class WangjanglerController
 {
     public function __invoke()
     {
-        $items => Item::all();
+        $items = Item::all();
 
         return Inertia::render('my-addon::DataWangjangler', [
             'items' => $items,
