@@ -70,27 +70,28 @@ export default defineConfig({
 });
 ```
 
-### Service Provider
-Here's `ServiceProvider.php`, which is the PHP entry point to your addon. You should add a `$vite` property which mirrors the paths in your `vite.config.js` file.
+### addon.js
+The `addon.js` file is responsible for registering Vue components or hooks.
 
-```php
-class ServiceProvider extends AddonServiceProvider
-{
-    protected $vite = [ // [tl! ++:start]
-        'input' => [
-            'resources/js/addon.js',
-            'resources/css/addon.css',
-        ],
-        'publicDirectory' => 'resources/dist',
-    ]; // [tl! ++:end]
-}
+- Wrap any component registrations inside a `Statamic.booting()` callback to ensure components are registered _after_ Statamic has booted.
+- Use `Statamic.$components.register()` (or `Statamic.$inertia.register()` for Inertia.js pages) to register components.
+
+``` js
+// import YourComponent from './components/YourComponent.vue';
+
+Statamic.booting(() => {
+    // Statamic.$components.register('component-name', YourComponent);
+});
 ```
 
-:::tip
-If you use the `php please make:fieldtype` command, these files will be created automatically for you.
-:::
+### addon.css
+True to its name, the `addon.css` file is responsible for your addon's CSS.
 
-## Tailwind CSS
+```css
+/** Your custom styles go here */
+```
+
+#### Tailwind CSS
 
 If you want to use [Tailwind CSS](https://tailwindcss.com) in your addon's components, you'll need to install & configure Tailwind.
 
@@ -128,6 +129,26 @@ If you want to use [Tailwind CSS](https://tailwindcss.com) in your addon's compo
     ```
 
     You don't need to `@import "tailwindcss"`, as it'll be imported by Statamic's `tailwind.css` file.
+
+### Service Provider
+Here's `ServiceProvider.php`, which is the PHP entry point to your addon. You should add a `$vite` property which mirrors the paths in your `vite.config.js` file.
+
+```php
+class ServiceProvider extends AddonServiceProvider
+{
+    protected $vite = [ // [tl! ++:start]
+        'input' => [
+            'resources/js/addon.js',
+            'resources/css/addon.css',
+        ],
+        'publicDirectory' => 'resources/dist',
+    ]; // [tl! ++:end]
+}
+```
+
+:::tip
+If you use the `php please make:fieldtype` command, these files will be created automatically for you.
+:::
 
 ## Development
 
