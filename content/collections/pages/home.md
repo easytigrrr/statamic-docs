@@ -51,13 +51,13 @@ tiles:
   -
     id: m8ft2vpz
     tile_image: tiles/cd.png
-    tile_title: 'Feature Reference Lists'
-    tile_description: 'Start unlocking the mighty flexible powers of Antlers.'
+    tile_title: 'UI Component Library'
+    tile_description: 'Level up your custom addons and control panel extensions'
     type: tile
     enabled: true
     flush_image: false
     hue_rotate: false
-    tile_link: 'entry::3e260b43-aa71-43b6-832e-1ebf2f59f39b'
+    tile_link: 'https://ui.statamic.dev'
   -
     id: m8ft8fb1
     tile_image: tiles/stereo.png
