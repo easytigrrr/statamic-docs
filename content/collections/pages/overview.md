@@ -1,13 +1,14 @@
 ---
 id: 20f0707b-619d-4a7a-b7dd-aea4122fa1db
 blueprint: page
-title: Overview
+title: 'Content Modeling'
 intro: 'Before you build pages, templates, or implement features, there’s one foundational question to answer: **what shape should your content take?**'
 related_entries:
   - 54548616-fd6d-44a3-a379-bdf71c492c63
   - 2940c834-7062-47a1-957c-88a69e790cbb
   - 1e91dd54-c452-4e3b-8972-dba83c048d3d
   - 7202c698-942a-4dc0-b006-b982784efb03
+nav_title: Overview
 ---
 Content modeling is just the process of deciding how your content is structured — what fields it has, how different pieces relate to each other, and where flexibility actually matters. In Statamic, that plays out with blueprints, fields, globals, collections, and relationships.
 
