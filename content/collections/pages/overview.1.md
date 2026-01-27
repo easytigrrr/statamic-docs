@@ -3,7 +3,8 @@ id: e0e93aba-4abc-4433-9257-3321a4521d60
 blueprint: page
 title: 'Control Panel Overview'
 nav_title: Overview
-intro: 'The Statamic Control Panel is where you manage everything that makes your site… well, your site. It's the admin interface you use to create and edit content, manage users and permissions, tweak settings, access utilities, and interact with addons — all without needing to touch the filesystem directly.'
+intro: >
+    The Statamic Control Panel is where you manage everything that makes your site… well, your site. It's the admin interface you use to create and edit content, manage users and permissions, tweak settings, access utilities, and interact with addons — all without needing to touch the filesystem directly
 ---
 <figure>
     <img src="/img/screenshot-cp-v6.webp" alt="Statamic v6 Control Panel" class="u-hide-in-dark-mode">
