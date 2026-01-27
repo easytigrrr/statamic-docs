@@ -85,7 +85,7 @@
         text-align: left;
     }
 
-    &tbody tr {
+    .c-table tbody tr {
         &:first-child td {
             padding-block-start: var(--spacing-lg);
         }
