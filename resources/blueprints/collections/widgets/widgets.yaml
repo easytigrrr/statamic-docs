@@ -21,6 +21,13 @@ tabs:
               container: main
               max_files: 1
               folder: widgets
+          -
+            handle: screenshot_dark
+            field:
+              type: assets
+              container: main
+              max_files: 1
+              folder: widgets
   sidebar:
     display: Sidebar
     sections:
