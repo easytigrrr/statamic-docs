@@ -4,7 +4,8 @@ blueprint: widgets
 title: 'Updater Widget'
 intro: 'Shows if there are any Statamic core or addon updates available.'
 nav_title: Updater
-screenshot: widgets/updater.png
+screenshot: widgets/updater-v6.webp
+screenshot_dark: widgets/updater-v6-dark.webp
 options:
   -
     name: width

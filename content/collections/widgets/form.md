@@ -35,7 +35,8 @@ options:
     type: string
     required: false
     description: 'The title of the widget. Defaults to the form name.'
-screenshot: widgets/form.png
+screenshot: widgets/form-v6.webp
+screenshot_dark: widgets/form-v6-dark.webp
 ---
 ## Configuring
 
