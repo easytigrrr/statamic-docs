@@ -39,7 +39,8 @@ options:
     type: string
     required: false
     description: 'The title of the widget. Defaults to the collection name.'
-screenshot: widgets/collection.png
+screenshot: widgets/collection-v6.webp
+screenshot_dark: widgets/collection-v6-dark.webp
 nav_title: Collection
 ---
 ## Configuring
