@@ -45,6 +45,10 @@ Here's `package.json`, which contains the commands you'll need to run, and the d
 }
 ```
 
+:::tip Note
+If you aren't already, your addon should require `statamic/cms` as a Composer dependency. Otherwise, the `vendor/statamic/cms` directory won't exist.
+:::
+
 ### vite.config.js
 Here's `vite.config.js`, which configures Vite itself.
 
@@ -155,6 +159,7 @@ If you use the `php please make:fieldtype` command, these files will be created 
 If you visit the Control Panel before running any commands, you will be greeted with a `Vite manifest not found` error. You'll need to install dependencies (the first time only) and start the development server.
 
 ```bash
+cd addons/your/addon
 npm install
 npm run dev
 ```
@@ -163,13 +168,13 @@ Now that the Vite server is running, the error in the Statamic CP should be gone
 
 To use Hot Module Reloading (HMR) or the [Vue Devtools](https://devtools.vuejs.org) browser extension, you need to publish a special "dev build", which can be done via the `vendor:publish` command:
 
-```
+```bash
 php artisan vendor:publish --tag=statamic-cp-dev
 ```
 
 Alternatively, it can be symlinked:
 
-```
+```bash
 ln -s /path/to/vendor/statamic/cms/resources/dist-dev public/vendor/statamic/cp-dev
 ```
 
@@ -189,13 +194,13 @@ export default defineConfig({
 
 To avoid needing to run the development script every time you visit the Control Panel, you may wish to build your CSS & JS.
 
-```
+```bash
 npm run build
 ```
 
 You may need to symlink your addon's `resources/dist` directory the first time so it points to your addon's directory:
 
-```
+```bash
 ln -s ./addons/your/addon/resources/dist public/vendor/package
 ```
 
