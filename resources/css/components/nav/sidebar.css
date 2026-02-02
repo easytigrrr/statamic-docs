@@ -177,6 +177,8 @@
                             /* Increase the pointer targets a little to improve usability */
                             padding: var(--dropdown-nav-item-padding);
                             display: inline-block;
+                            /* Break at word boundaries when possible, for example, break on a long word like User:Forgot_Password_Form: */
+                            word-break: break-word;
                             text-box: trim-start;
                         }
                         .o-current-menu-item {

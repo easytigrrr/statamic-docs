@@ -171,6 +171,8 @@
                             /* Need this to line up so that the scroll spy line also continues to line up */
                             padding-inline: 0;
                             a {
+                                /* Break at word boundaries when possible, for example, break on a long word like User:Forgot_Password_Form: */
+                                word-break: break-word;
                                 /* Indent the subnav */
                                 margin-inline-start: 0.3rem;
                                 padding-inline: var(--spacing-2xs);
