@@ -49,7 +49,7 @@ Let's say we want a link to edit the current entry in the control panel if the u
 
 ## Super Users
 
-[Super users](/users#super-users) can always do everything, so no matter what you check for — whether it exists as an actual permission or not — it will always return `true`.
+[Super users](/users#super-users) are granted permission for any Statamic-related abilities. When a permission doesn't exist in Statamic, it'll fall back to [traditional Laravel authorization](https://laravel.com/docs/master/authorization#main-content).
 
 ## Can’t
 
