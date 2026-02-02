@@ -424,7 +424,7 @@
     hr, .markdown h2:not(header + h2), article > h2:not(header + h2) {
         --border-width: 0.3px;
     }
-    .markdown h2:not(header + h2), article > h2:not(header + h2, hr + h2) {
+    .markdown h2:not(header + h2), article > h2:not(header + h2, hr + h2, .c-doc-tabs + h2) {
         position: relative;
         --distance: var(--spacing-2xl);
         margin-block-start: var(--distance);
