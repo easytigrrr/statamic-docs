@@ -21,14 +21,16 @@
         :is(h1,h2,h3,h4,h5,h6) + & {
             margin-block-start: 0;
         }
-        /* --mq-grid-after to custom */
-        @media (width >= 1000px) and (width < 1350px) {
-            /* Only affect the width of direct descendants of pre on the entry content, not nested pre tags e.g. >> /ui-components/badge, where it should be 100% of the container */
-            .c-entry-content > &,
-            .c-doc-tabs & {
-                /* Prevent the chance of the width of pre affecting the grid layout e.g. >> /quick-start-guide, /fieldtypes/dictionary */
-                max-width: 46rem;
-            }
+    }
+
+    /* --mq-grid-after to custom */
+    @media (width >= 1000px) and (width < 1430px) {
+        /* Only affect the width of direct descendants of pre on the entry content, not nested pre tags e.g. >> /ui-components/badge, where it should be 100% of the container */
+        .c-entry-content > pre,
+        .c-doc-tabs pre,
+        .tab-content {
+            /* Prevent the chance of the width of pre affecting the grid layout e.g. >> /quick-start-guide, /fieldtypes/dictionary, /tags/glide */
+            max-width: 53vw;
         }
     }
 
