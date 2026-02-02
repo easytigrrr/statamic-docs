@@ -36,7 +36,7 @@
     /* ul*/
     .o-scroll-spy-timeline__toc {
         scroll-target-group: auto;
-        --item-padding: var(--spacing-3xs);
+        --item-padding: var(--spacing-4xs);
         &, ul {
             gap: unset;
         }

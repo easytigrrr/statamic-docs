@@ -102,7 +102,7 @@
                 align-items: center;
                 justify-content: space-between;
                 /* Nudge so the nav aligns horizontally with the breadcrumbs */
-                padding: 0.45rem 0 0.45rem var(--spacing-md);
+                padding: 0.4rem 0 0.4rem var(--spacing-md);
                 font-size: var(--font-size-md);
                 line-height: var(--font-size-md-line-height);
                 font-weight: var(--font-family-main-weight-normal);
@@ -160,7 +160,7 @@
                     }
 
                     ul {
-                        gap: var(--spacing-3xs);
+                        gap: var(--spacing-4xs);
                         max-height: unset;
                         padding-inline: calc(var(--spacing-md) - var(--dropdown-nav-item-padding));
                         font-size: var(--font-size-ui-rem);
