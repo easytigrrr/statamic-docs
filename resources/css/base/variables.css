@@ -226,10 +226,10 @@
     --font-size-2xl: clamp(1.8em * 0.85, 6vw, 1.8em);
     --font-size-2xl-line-height: 1.2;
 
-    --font-size-3xl: clamp(2.25em * 0.9, 6vw, 2.25em);
+    --font-size-3xl: clamp(2.1em * 0.9, 6vw, 2.1em);
     --font-size-3xl-line-height: 1.15;
 
-    --font-size-4xl: clamp(2.827em * 0.9, 9vw, 2.827em);
+    --font-size-4xl: clamp(2.827em * 0.8, 8.5vw, 2.827em);
     --font-size-4xl-line-height: 1.15;
 
     /* e.g. >> Home > Learn Statamic */

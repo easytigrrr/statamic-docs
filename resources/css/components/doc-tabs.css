@@ -23,7 +23,7 @@
         padding-block-start: var(--spacing-sm);
         :is(h2, h3, h4, h5, h6) + & {
             /* e.g. >> /frontend/protecting-content where there's a heading of "Override the view" followed by some tabs */
-            padding-block-start: var(--spacing-2xs);
+            padding-block-start: var(--spacing-3xs);
         }
         border-radius: var(--button-radius);
 
