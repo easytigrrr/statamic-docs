@@ -648,4 +648,4 @@ A number of items have been removed. If you feel they shouldn't have been remove
 - The deprecated `$slugify` function has been removed in favor of the `$slug` API.
 - The `v-focus` directive has been removed.
 - The `store`/`storeName` are no longer included field action payloads. 
-- The `vue-select` package has been removed. If you're using `<v-select>` you should change to the [Combobox UI component](/ui-components/combobox).
+- The `vue-select` package has been removed. If you're using `<v-select>` you should change to the [Combobox UI component](https://ui.statamic.dev/?path=/docs/forms-combobox--docs).
