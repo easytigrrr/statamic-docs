@@ -406,7 +406,7 @@ export default function (tiptap) {
 
 ## Component Substitutions
 
-With the introduction of the [UI component library](/ui-components), a number of components have been replaced by more modern versions.
+With the introduction of the [UI component library](https://ui.statamic.dev), a number of components have been replaced by more modern versions.
 
 ### Publish
 
@@ -558,7 +558,7 @@ You can also forgo the imports and just use `ui-dropdown`, `ui-dropdown-menu`, a
 
 ### Inputs
 
-Input components such as `<text-input>`, `<textarea-input>`, `<select-input>`, and `<toggle-input>` have been removed in favor of [Input](/ui-components/input), [Textarea](/ui-components/textarea), [Combobox](/ui-components/combobox), [Switch](/ui-components/switch) UI components respectively. 
+Input components such as `<text-input>`, `<textarea-input>`, `<select-input>`, and `<toggle-input>` have been removed in favor of [Input](https://ui.statamic.dev/?path=/docs/forms-input--docs), [Textarea](https://ui.statamic.dev/?path=/docs/forms-textarea--docs), [Combobox](https://ui.statamic.dev/?path=/docs/forms-combobox--docs), [Switch](https://ui.statamic.dev/?path=/docs/forms-switch--docs) UI components respectively. 
 
 ```vue
 <script>

@@ -52,7 +52,7 @@ defineProps(['message']);
 </template>
 ```
 
-The [`<Widget>`](/ui-components/widget) component requires a `title` prop, along with optional `icon` and `href` props. You also pass an `actions` slot to render content in the top right of the widget.
+The `<Widget>` component requires a `title` prop, along with optional `icon` and `href` props. You also pass an `actions` slot to render content in the top right of the widget.
 
 If you'd prefer to create your widget using Blade, simply pass the `--blade` argument to the `make:widget` command.
 
