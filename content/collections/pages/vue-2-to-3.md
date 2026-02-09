@@ -521,7 +521,7 @@ export default {
 </template>
 ```
 
-View the [Listing component docs page](/ui-components/listing) for more details.
+View the [Listing component docs page](https://ui.statamic.dev/?path=/docs/layout-listing--docs) for more details.
 
 
 
