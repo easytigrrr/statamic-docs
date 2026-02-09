@@ -68,11 +68,10 @@ Date fields have highly configurable user interfaces. They can be as simple as a
 Single dates are stored as a date/timestring. Ranges are stored as an array with a `start` and `end` key.
 
 ``` yaml
-date: 1983-10-01
-date_with_time: 1983-10-01 12:00:00
+date: 1983-10-01 12:00:00
 date_range:
-  start: 2019-11-18
-  end: 2019-11-22
+  start: 2019-11-18 00:00
+  end: 2019-11-22 00:00
 ```
 
 Dates are stored in your application's timezone. 
