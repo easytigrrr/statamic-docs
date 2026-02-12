@@ -47,7 +47,7 @@ You can change the driver in your `config/statamic/assets.php` file:
 
 To learn more about the available drivers, please refer to the [Glide documentation](https://glide.thephpleague.com/3.0/config/image-driver/).
 
-### Glide tag
+## Glide tag
 
 Each named preset can be referenced with the `preset` parameter on the [Glide tag][glide-tag]:
 
