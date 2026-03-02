@@ -247,4 +247,17 @@ return [
 
     'layout' => env('STATAMIC_LAYOUT', 'layout'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | View Config Allowlist
+    |--------------------------------------------------------------------------
+    |
+    | Config keys that are allowed to be accessed in Antlers templates. Use
+    | '@default' to include Statamic's default list. Add 'docs' so the docs
+    | version switcher can access config.docs.version and config.docs.versions.
+    |
+    */
+
+    'view_config_allowlist' => ['@default', 'docs'],
+
 ];
