@@ -39,6 +39,11 @@ options:
     type: string
     required: false
     description: 'The title of the widget. Defaults to the collection name.'
+  -
+    name: show_table_header
+    type: boolean
+    required: false
+    description: 'Show table column headers. Off by default.'
 screenshot: widgets/collection-v6.webp
 screenshot_dark: widgets/collection-v6-dark.webp
 nav_title: Collection

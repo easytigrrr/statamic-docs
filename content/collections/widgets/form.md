@@ -35,6 +35,11 @@ options:
     type: string
     required: false
     description: 'The title of the widget. Defaults to the form name.'
+  -
+    name: show_table_header
+    type: boolean
+    required: false
+    description: 'Show table column headers. Off by default.'
 screenshot: widgets/form-v6.webp
 screenshot_dark: widgets/form-v6-dark.webp
 ---
