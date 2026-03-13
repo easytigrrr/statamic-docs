@@ -296,8 +296,8 @@ To add a passkey for the Control Panel, log in and visit your **profile**, where
 Click **Create Passkey** and follow the prompts to complete setup. Once a passkey has been added, you can use it to sign in without entering your email address and password.
 
 <figure>
-    <img src="/img/login-with-passkey.webp" alt="Passkey button on sign in page" class="u-hide-in-dark-mode">
-    <img src="/img/login-with-passkey-dark.webp" alt="Passkey button on sign in page" class="u-hide-in-light-mode">
+    <img src="/img/login-with-passkey-option.webp" alt="Passkey button on sign in page" class="u-hide-in-dark-mode">
+    <img src="/img/login-with-passkey-option-dark.webp" alt="Passkey button on sign in page" class="u-hide-in-light-mode">
 </figure>
 
 Passkey behaviour, including whether password logins are still allowed for users with passkeys and whether “remember me” applies when logging in with a passkey, can be configured in `config/statamic/webauthn.php`.
