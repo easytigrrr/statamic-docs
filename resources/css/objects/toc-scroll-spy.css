@@ -2,8 +2,7 @@
 =================================================== */
 /* Notes...
 
-    - Use JS for now until scroll-driven-animations are more widely supported
-    - For scroll-driven version see /objects/toc-scroll-spy.css
+    - Use JS for a fallback until scroll-target-group are more widely supported
 
 */
 /* HTML Example...
