@@ -85,6 +85,50 @@ class ExampleTest extends TestCase
 }
 ```
 
+### Update Scripts
+
+To test an [update script](/addons/building-an-addon#update-scripts), import the `RunsUpdateScripts` trait and call `$this->runUpdateScript()` with your script class.
+
+```php
+use Statamic\Testing\Concerns\RunsUpdateScripts; // [tl! focus]
+
+class ExampleTest extends TestCase
+{
+	use RunsUpdateScripts; // [tl! focus]
+
+    #[Test]
+    public function it_does_what_it_needs_to_do()
+    {
+        $this->runUpdateScript(YourUpdateScript::class); // [tl! focus]
+    }
+    
+    // ...
+}
+```
+
+:::warning
+The `RunsUpdateScripts` trait is only available in Statamic v6.3.0 and above. You may need to bump your minimum supported version to use it.
+:::
+
+### Inertia.js
+
+The Control Panel is powered by [Inertia.js](https://inertiajs.com), allowing Statamic to render pages as Vue components instead of traditional Blade views.
+
+To assert an Inertia response, use the `->assertInertia()` macro:
+
+```php
+use Inertia\Testing\AssertableInertia as Assert;
+
+$this
+    ->get(cp_route('my-addon.index'))
+    ->assertInertia(fn (Assert $page) => $page
+        ->component('my-addon::Foo')
+        ->has('message');
+    );
+```
+
+For more details, see the [Inertia.js testing documentation](https://inertiajs.com/docs/v2/advanced/testing).
+
 ## Running Tests
 
 Once you've written some tests, you can run them using `phpunit`:
@@ -125,8 +169,8 @@ jobs:
   php_tests:
     strategy:
       matrix:
-        php: [8.2, 8.3]
-        laravel: [10.*, 11.*]
+        php: [8.3, 8.4, 8.5]
+        laravel: [12.*, 13.*]
         os: [ubuntu-latest]
 
     name: ${{ matrix.php }} - ${{ matrix.laravel }}
