@@ -217,3 +217,19 @@ npm run build
 The files will be compiled into `resources/dist`.
 
 If you'd like to test that everything is working you can run `php artisan vendor:publish` in your app and choose your addon's tag. The compiled assets should be copied into `public/vendor/your-addon` and they should be loaded in the Control Panel.
+
+## Configuring Vue
+
+You may use the `Statamic.configuring()` hook to register Vue plugins and global properties before the Control Panel is mounted.
+
+```js
+// addon.js
+
+Statamic.configuring(() => {
+    Statamic.$app.use(PerfectScrollbarPlugin);
+
+    Object.assign(Statamic.$app.config.globalProperties, {
+        $something: something,
+    });
+});
+```
