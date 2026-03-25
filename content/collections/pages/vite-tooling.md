@@ -134,13 +134,26 @@ If you want to use [Tailwind CSS](https://tailwindcss.com) in your addon's compo
 
     You don't need to `@import "tailwindcss"`, as it'll be imported by Statamic's `tailwind.css` file.
 
-#### Overriding Control Panel CSS
+### Overriding Control Panel CSS
 
-We organize our CSS using [cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#issues_cascade_layers_can_solve) to help manage styling priorities and avoid conflicts. Internally, we define layers in this order: `@layer base, addon-theme, addon-utilities, components, utilities, ui, ui-states;`. Any CSS you add to your addon will automatically go into the `addon-utilities` layer.
+We organize our CSS using [cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#issues_cascade_layers_can_solve) to help manage styling priorities and avoid conflicts. Internally, we define layers in this order: `@layer base, addon-theme, addon-utilities, components, utilities, ui, ui-states;`.
+
+#### Overriding Control Panel CSS using Tailwind
+
+If you use Tailwind, any CSS you add to your addon will automatically go into the `addon-utilities` layer.
 
 We intentionally place addon layers below Statamic’s core layers. This prevents addon styles from unintentionally overriding Statamic's core styles—for instance, an addon's `bg-something` class won’t interfere with Statamic's `dark:bg-something`, which could otherwise cause visual issues like incorrect background colors.
 
 If you do need to explicitly override Statamic’s styles, you can use the Tailwind `!` prefix (e.g., `!lg:grid-cols-3`) to force your class to take priority, which is `!important` under the hood. However, use this technique sparingly, as it will override Statamic’s intended default styling and could introduce unintended side effects.
+
+#### Overriding Control Panel CSS using plain CSS
+
+If you don't use Tailwind, you should still use the `addon-utilities` layer by default, to avoid conflicts with Statamic's core styles.
+
+If you want to override something specific in the CP CSS and your rule is clashing with a core style, there are a couple of different approaches you can take.
+
+1. You can simply write CSS outside cascade layers, which will have higher specificity than Statamic's styles.
+2. You can also use the `!important` flag inside `@layer addon-utilities { ... }` to override Statamic's styles.
 
 ### Service Provider
 Here's `ServiceProvider.php`, which is the PHP entry point to your addon. You should add a `$vite` property which mirrors the paths in your `vite.config.js` file.
